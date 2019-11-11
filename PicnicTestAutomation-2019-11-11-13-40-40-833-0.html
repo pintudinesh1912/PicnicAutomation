@@ -1,0 +1,2350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Newman Summary Report</title>
+  <link rel="stylesheet" href="https://bootswatch.com/4/darkly/bootstrap.min.css">
+  <link rel="stylesheet prefetch" href='https://use.fontawesome.com/releases/v5.0.10/css/all.css'>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/github-gist.min.css">
+  <link rel="stylesheet" href="https://cdn.datatables.net/v/bs4/dt-1.10.18/datatables.min.css"/>
+
+
+<style>
+body {
+  padding-top:30px;
+}
+
+body, html {
+  height:100%;
+}
+
+.badge-outline-success {
+    color: #27ae60;
+    border: 1px solid #27ae60;
+    background-color: transparent;
+}
+
+.badge-outline {
+    color: #27ae60;
+    border: 1px solid #27ae60;
+    background-color: transparent;
+}
+
+.card {
+    overflow:hidden;
+}
+
+.card-footer {
+    background-color:#4b4949;
+}
+
+.card-body .rotate {
+    z-index: 8;
+    float: right;
+    height: 100%;
+}
+
+.card-body .rotate i {
+    color: rgba(20, 20, 20, 0.15);
+    position: absolute;
+    left: 0;
+    left: auto;
+    right: -10px;
+    bottom: 0;
+    display: block;
+    -webkit-transform: rotate(-44deg);
+    -moz-transform: rotate(-44deg);
+    -o-transform: rotate(-44deg);
+    -ms-transform: rotate(-44deg);
+    transform: rotate(-44deg);
+}
+.dyn-height {
+    max-height:350px;
+    overflow-y:auto;
+}
+
+.nav-pills .nav-link.active {
+    background-color: transparent!important;
+}
+
+.backToTop {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 30px;
+  z-index: 99;
+  font-size: 18px;
+  outline: none;
+  cursor: pointer;
+  padding: 15px;
+  border-radius: 4px;
+}
+
+.backToTop:hover {
+  background-color: #00bc8ca8!important;
+}
+
+.custom-tab {
+    padding: 10px 15px;
+    margin-right: 3px;
+    border: solid 1px #fff;
+    border-bottom: none;
+    cursor:pointer;
+}
+.custom-tab .active {
+    border-bottom:solid 1px #032a33;
+}
+
+#execution-data {
+    padding: 10px;
+    border: solid 1px #fff;
+    border-top: none;
+}
+
+.card-header .fa {
+  transition: .3s transform ease-in-out;
+}
+.card-header .collapsed .fa {
+  transform: rotate(90deg);
+}
+
+.hljs {
+    background: #0f0f0f82!important;
+    color: #8d8787!important;
+}
+
+.bg-info {
+    background-color: #3498dbc2!important;
+}
+
+.bg-success {
+    background-color: #00bc8ca8!important;
+}
+
+.alert-success {
+    background-color: #00bc8ca8!important;
+}
+
+.alert-warning {
+    background-color: #ce8818!important
+}
+
+.bg-warning {
+    background-color: #f39c12cf!important;
+}
+
+.table-warning>td {
+    background-color: #ce8818!important;
+}
+
+.alert-danger {
+    background-color: #bd4539!important
+}
+
+.bg-danger {
+    background-color: #e74c3cc4!important;
+}
+
+.table-danger>td {
+    background-color: #bd4539!important;
+}
+
+.resultsInfo {
+    color: #319273;
+    padding-top: 4px;
+}
+
+</style>
+</head>
+<body>
+  <div class="container">
+        <div class="card">
+        <div class="card-header">
+            <ul class="nav nav-pills mb-3 nav-justified" id="pills-tab" role="tablist">
+            <li class="nav-item bg-info active" data-toggle="tooltip" title="Click to view the Summary">
+                <a class="nav-link text-white" id="pills-summary-tab" data-toggle="pill" href="#pills-summary" role="tab" aria-controls="pills-summary" aria-selected="true">Summary</a>
+            </li>
+            <li class="nav-item bg-success" data-toggle="tooltip" title="Click to view the Requests">
+                <a class="nav-link text-white" id="pills-requests-tab" data-toggle="pill" href="#pills-requests" role="tab" aria-controls="pills-requests" aria-selected="false">Total Requests <span class="badge badge-light">6</span></a>
+            </li>
+            <li class="nav-item bg-danger" data-toggle="tooltip" title="Click to view the Failed Tests">
+                <a class="nav-link text-white" id="pills-failed-tab" data-toggle="pill" href="#pills-failed" role="tab" aria-controls="pills-failed" aria-selected="false">Failed Tests <span class="badge badge-light">0</span></a>
+            </li>
+            <li class="nav-item bg-warning" data-toggle="tooltip" title="Click to view the Skipped Tests">
+                <a class="nav-link text-white" id="pills-skipped-tab" data-toggle="pill" href="#pills-skipped" role="tab" aria-controls="pills-skipped" aria-selected="false">Skipped Tests <span class="badge badge-light">0</span></a>
+            </li>
+            </ul>
+        <div class="tab-content" id="pills-tabContent">
+            <div class="tab-pane fade show active" id="pills-summary" role="tabcard" aria-labelledby="pills-summary-tab">
+<div class="row">
+  <div class="col-md-9 col-lg-12 main">
+   <h1 class="display-2 text-center">Picnic Test Automation for Gists</h1>
+   <h4 class="text-center">Monday, 11 November 2019 14:40:40</h4>
+   <div class="row">
+    <div class="col-lg-3 col-md-6">
+     <div class="card text-white card-success">
+      <div class="card-body bg-success">
+       <div class="rotate">
+        <i class="fa fa-retweet fa-5x"></i>
+       </div>
+       <h6 class="text-uppercase">Total Iterations</h6>
+       <h1 class="display-1">1</h1>
+      </div>
+     </div>
+    </div>
+    <div class="col-lg-3 col-md-6">
+     <div class="card text-white card-danger">
+      <div class="card-body bg-success">
+       <div class="rotate">
+        <i class="fa fa-list fa-4x"></i>
+       </div>
+       <h6 class="text-uppercase">Total Assertions</h6>
+       <h1 class="display-1">17</h1>
+      </div>
+     </div>
+    </div>
+    <div class="col-lg-3 col-md-6">
+     <div class="card text-white card-info">
+      <div class="card-body bg-success">
+       <div class="rotate">
+        <i class="fa fa-plus-circle fa-5x"></i>
+       </div>
+       <h6 class="text-uppercase">Total Failed Tests</h6>
+       <h1 class="display-1">0</h1>
+      </div>
+     </div>
+    </div>
+    <div class="col-lg-3 col-md-6">
+     <div class="card text-white card-warning">
+      <div class="card-body bg-success">
+       <div class="rotate">
+        <i class="fa fa-share fa-5x"></i>
+       </div>
+       <h6 class="text-uppercase">Total Skipped Tests</h6>
+       <h1 class="display-1">0</h1>
+      </div>
+     </div>
+    </div>
+   </div>
+   <hr>
+    <div class="row">
+    <div class="col">
+        <div class="row">
+        <div class="col-sm-12 mb-3">
+            <div class="card border-info">
+                <div class="card-body">
+                <h5 class="card-title text-uppercase text-white text-center bg-info">File Information</h5>
+                <span><i class="fas fa-file-code"></i></span><strong> Collection:</strong> PicnicTestAutomation<br>
+                
+                </div>
+            </div>
+        </div>
+        </div>
+        <div class="row">
+        <div class="col-sm-12 mb-3">
+            <div class="card border-info">
+                <div class="card-body">
+                <h5 class="card-title text-uppercase text-white text-center bg-info">Collection Description</h5>
+                <div class="dyn-height">
+                    <pre id="description">Automation of Gists</pre>
+                </div>
+                </div>
+            </div>
+        </div>
+        </div>
+        <div class="row">
+        <div class="col-sm-12 mb-3">
+            <div class="card border-info">
+                <div class="card-body">
+                <h5 class="card-title text-uppercase text-white text-center bg-info">Timings and Data</h5>
+                <span><i class="fas fa-stopwatch"></i></span><strong> Total run duration:</strong> 4s<br>
+                <span><i class="fas fa-database"></i></span><strong> Total data received:</strong> 15.06KB<br>
+                <span><i class="fas fa-stopwatch"></i></span><strong> Average response time:</strong> 632ms<br>
+                </div>
+            </div>
+        </div>
+        </div>
+        <div class="row">
+        <div class="col-sm-12 mb-3">
+            <div class="table-responsive">
+            <table class="table table-striped table-bordered">
+                <thead class="thead-inverse">
+                    <tr class="text-center">
+                        <th class="text-uppercase">Summary Item</th>
+                        <th class="text-uppercase">Total</th>
+                        <th class="text-uppercase">Failed</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Requests</td>
+                        <td class="text-center">6</td>
+                        <td class="text-center">0</td>
+                    </tr>
+                    <tr>
+                        <td>Prerequest Scripts</td>
+                        <td class="text-center">2</td>
+                        <td class="text-center">0</td>
+                    </tr>
+                    <tr>
+                        <td>Test Scripts</td>
+                        <td class="text-center">6</td>
+                        <td class="text-center">0</td>
+                    </tr>
+                    <tr class="">
+                        <td>Assertions</td>
+                        <td class="text-center">17</td>
+                        <td class="text-center">0</td>
+                    </tr>
+                    <tr class="">
+                        <td>Skipped Tests</td>
+                        <td class="text-center">0</td>
+                        <td class="text-center">-</td>
+                    </tr>
+                </tbody>
+            </table>
+            </div>
+        </div>
+        </div>
+    <hr>
+   </div>
+   </div>
+  </div>
+ </div>
+        </div>
+            <div class="tab-pane fade" id="pills-failed" role="tabcard" aria-labelledby="pills-failed-tab">
+                <button id="topOfFailuresScreen" class="btn btn-outline-success btn-sm backToTop" onclick="topFunction()">Go To Top</button>
+                <div class="alert alert-success text-uppercase text-center">
+                     <br><br><h1 class="text-center">There are no failed tests <span><i class="far fa-thumbs-up"></i></span></h1><br><br>
+                </div>
+            </div>
+
+            <div class="tab-pane fade" id="pills-skipped" role="tabcard" aria-labelledby="pills-skipped-tab">
+                <button id="topOfSkippedScreen" class="btn btn-outline-success btn-sm backToTop" onclick="topFunction()">Go To Top</button>
+                <div class="alert alert-success text-uppercase text-center">
+                    <br><br><h1 class="text-center">There are no skipped tests <span><i class="far fa-thumbs-up"></i></span></h1><br><br>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="pills-logs" role="tabcard" aria-labelledby="pills-logs-tab">
+                <button id="topOfLogsScreen" class="btn btn-outline-success btn-sm backToTop" onclick="topFunction()">Go To Top</button>
+            </div>
+            <div class="tab-pane fade" id="pills-requests" role="tabcard" aria-labelledby="pills-requests-tab">
+
+            <button id="topOfRequestsScreen" class="btn btn-outline-success btn-sm backToTop" onclick="topFunction()">Go To Top</button>
+            
+            <button id="closeAll" class="btn btn-outline-success btn-sm float-right">Collapse Folders</button>
+            <button id="openAll" class="btn btn-outline-success btn-sm float-right">Expand Folders</button>
+
+    <div class="text-uppercase" id="execution-menu">
+        <h6>1 Iteration available to view</h6>
+        <ul class="nav nav-tabs">
+        </ul>
+    </div>
+	<div class="tab-content" id="execution-data">
+            <div class="card-deck iteration-0">
+            <div class="row iteration-0">
+                <div class="col-sm-12 mb-3 iteration-0">
+                <div class="card iteration-0">
+                    <div class="card-header  bg-success iteration-0">
+                        <a data-toggle="collapse" href="#" data-target="#collapse-f1bc4474-0d7e-4d38-b4c8-0a2a81f2401f" aria-expanded="false" aria-controls="collapse" id="requests-f1bc4474-0d7e-4d38-b4c8-0a2a81f2401f" class="collapsed text-white z-block">
+                    Iteration: 1 - As a user, I want to create a public gist. <i class="float-lg-right fa fa-chevron-down"></i>
+                </a>
+                    </div>
+                    <div id="collapse-f1bc4474-0d7e-4d38-b4c8-0a2a81f2401f" class="collapse" aria-labelledby="requests-f1bc4474-0d7e-4d38-b4c8-0a2a81f2401f">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-sm-12 mb-3">
+                                <div class="card-deck">
+                                <div class="card border-info" style="width: 50rem;">
+                                    <div class="card-body">
+                                    <h5 class="card-title text-uppercase text-white text-center bg-info">Request Information</h5>
+                                    <span><i class="fas fa-info-circle"></i></span><strong> Request Method:</strong> <span class="badge-outline-success badge badge-success"> POST</span><br>
+                                    <span><i class="fas fa-info-circle"></i></span><strong> Request URL:</strong> <a href="https://api.github.com/gists" target="_blank">https://api.github.com/gists</a><br>
+                                    </div>
+                                </div>
+                                <div class="card border-info" style="width: 50rem;">
+                                    <div class="card-body">
+                                    <h5 class="card-title text-uppercase text-white text-center bg-info">Response Information</h5>
+                                    <span><i class="fas fa-info-circle"></i></span><strong> Response Code:</strong> <span class="float-right badge-outline badge badge-success"> 201 - Created</span><br>
+                                    <span><i class="fas fa-stopwatch"></i></span><strong> Mean time per request:</strong> <span class="float-right badge-outline badge badge-success"> 1846ms</span><br>
+                                    <span><i class="fas fa-database"></i></span><strong> Mean size per request:</strong> <span class="float-right badge-outline badge badge-success"> 4.58KB</span><br>
+                                    <hr>
+                                    <h5 class="card-title text-uppercase text-white text-center bg-info">Test Pass Percentage</h5>
+                                    <div>
+                                        <div class="progress" style="height: 40px;">
+                                            <div class="progress-bar  bg-success" style="width: 100%" role="progressbar">
+                                            <h5><strong>100 %</strong></h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    </div>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12 mb-3">
+                                <div class="card-deck">
+                                <div class="card border-info" style="width: 50rem;">
+                                    <div class="card-body">
+                                        <h5 class="card-title text-uppercase text-white text-center bg-info">Request Headers</h5>
+                                        <div class="table-responsive">
+                                            <table class="table table-bordered">
+                                            <thead class="text-white text-center"><tr><th>Header Name</th><th>Header Value</th></tr></thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td class="text-nowrap">Content-Type</td>
+                                                        <td>application/json</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="text-nowrap">Authorization</td>
+                                                        <td>Basic cGludHVkaW5lc2hAZ21haWwuY29tOlNvbmlrYV8wMQ&#x3D;&#x3D;</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="text-nowrap">User-Agent</td>
+                                                        <td>PostmanRuntime/7.18.0</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="text-nowrap">Accept</td>
+                                                        <td>*/*</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="text-nowrap">Cache-Control</td>
+                                                        <td>no-cache</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="text-nowrap">Postman-Token</td>
+                                                        <td>d2a85a5a-c56e-4403-b8ac-75c9ec207380</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="text-nowrap">Host</td>
+                                                        <td>api.github.com</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="text-nowrap">Accept-Encoding</td>
+                                                        <td>gzip, deflate</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="text-nowrap">Content-Length</td>
+                                                        <td>812</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="text-nowrap">Connection</td>
+                                                        <td>keep-alive</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                        <div class="col-sm-12 mb-3">
+                            <div class="card-deck">
+                            <div class="card border-info" style="width: 50rem;">
+                                <div class="card-body">
+                                    <h5 class="card-title text-uppercase text-white text-center bg-info">Request Body</h5>
+                                        <div class="dyn-height">
+                                            <pre><code id="copyReqText-0" class="prettyPrint">{
+          &quot;description&quot;: &quot;Print my name&quot;,
+          &quot;public&quot;: true,
+          &quot;files&quot;: {
+            &quot;my_name.rb&quot;: {
+              &quot;content&quot;: &quot;class PrintMyName\n   def initialize(name)\n      @name &#x3D; name.capitalize\n   end\n   def sayHi\n      puts \&quot;My name is !\&quot;\n   end\nend\n\nname &#x3D; MyName.new(\&quot;Dinesh\&quot;)\nname.sayHi&quot;
+            },
+            &quot;my_name.py&quot;: {
+              &quot;content&quot;: &quot;class PrintMyName:\n\n    def __init__(self, name):\n        self.name &#x3D; name.capitalize()\n       \n    def sayHi(self):\n        print \&quot;My name is  \&quot; + self.name + \&quot;!\&quot;\n\nname &#x3D; MyName(\&quot;Dinesh\&quot;)\nname.sayHi()&quot;
+            },
+            &quot;print_my_name_ruby.txt&quot;: {
+              &quot;content&quot;: &quot;Run &#x60;ruby print_my_name.rb&#x60; to print My name is Dinesh&quot;
+            },
+            &quot;print_my_name_python.txt&quot;: {
+              &quot;content&quot;: &quot;Run &#x60;python print_my_name.py&#x60; to print My name is Dinesh&quot;
+            }
+          }
+        }
+        </code></pre>
+                                        </div>
+                                        <div class="card-footer">
+                                            <button class="btn btn-outline-secondary btn-sm copyButton" type="button" data-clipboard-action="copy" data-clipboard-target="#copyReqText-0">Copy to Clipboard</button>
+                                        </div>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                        </div>
+                        <div class="row">
+                        <div class="col-sm-12 mb-3">
+                            <div class="card-deck">
+                            <div class="card border-info" style="width: 50rem;">
+                                <div class="card-body">
+                                    <h5 class="card-title text-uppercase text-white text-center bg-info">Response Headers</h5>
+                                    <div class="table-responsive">
+                                        <table class="table table-bordered">
+                                        <thead class="text-white text-center"><tr><th>Header Name</th><th>Header Value</th></tr></thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td class="text-nowrap">Date</td>
+                                                    <td>Mon, 11 Nov 2019 13:40:38 GMT</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-nowrap">Content-Type</td>
+                                                    <td>application/json; charset&#x3D;utf-8</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-nowrap">Content-Length</td>
+                                                    <td>4689</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-nowrap">Server</td>
+                                                    <td>GitHub.com</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-nowrap">Status</td>
+                                                    <td>201 Created</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-nowrap">X-RateLimit-Limit</td>
+                                                    <td>60</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-nowrap">X-RateLimit-Remaining</td>
+                                                    <td>49</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-nowrap">X-RateLimit-Reset</td>
+                                                    <td>1573482977</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-nowrap">Cache-Control</td>
+                                                    <td>private, max-age&#x3D;60, s-maxage&#x3D;60</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-nowrap">Vary</td>
+                                                    <td>Accept, Authorization, Cookie, X-GitHub-OTP</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-nowrap">Vary</td>
+                                                    <td>Accept-Encoding</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-nowrap">ETag</td>
+                                                    <td>&quot;f00e911858350fc01be4f8a9eb38471e&quot;</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-nowrap">Location</td>
+                                                    <td>https://api.github.com/gists/e7bea2d20abf2146627a4382472b7b90</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-nowrap">X-GitHub-Media-Type</td>
+                                                    <td>github.v3; format&#x3D;json</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-nowrap">Access-Control-Expose-Headers</td>
+                                                    <td>ETag, Link, Location, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval, X-GitHub-Media-Type</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-nowrap">Access-Control-Allow-Origin</td>
+                                                    <td>*</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-nowrap">Strict-Transport-Security</td>
+                                                    <td>max-age&#x3D;31536000; includeSubdomains; preload</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-nowrap">X-Frame-Options</td>
+                                                    <td>deny</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-nowrap">X-Content-Type-Options</td>
+                                                    <td>nosniff</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-nowrap">X-XSS-Protection</td>
+                                                    <td>1; mode&#x3D;block</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-nowrap">Referrer-Policy</td>
+                                                    <td>origin-when-cross-origin, strict-origin-when-cross-origin</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-nowrap">Content-Security-Policy</td>
+                                                    <td>default-src &#x27;none&#x27;</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-nowrap">X-GitHub-Request-Id</td>
+                                                    <td>DAD1:450D5:2260DF4:29033A9:5DC964D4</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                        </div>
+                        <div class="row">
+                        <div class="col-sm-12 mb-3">
+                            <div class="card-deck">
+                            <div class="card border-info" style="width: 50rem;">
+                                <div class="card-body">
+                                    <h5 class="card-title text-uppercase text-white text-center bg-info">Response Body</h5>
+                                        <div class="dyn-height">
+                                                <pre><code id="copyText-815052be-dead-4eed-bcc9-283b714742d2" class="prettyPrint">{&quot;url&quot;:&quot;https://api.github.com/gists/e7bea2d20abf2146627a4382472b7b90&quot;,&quot;forks_url&quot;:&quot;https://api.github.com/gists/e7bea2d20abf2146627a4382472b7b90/forks&quot;,&quot;commits_url&quot;:&quot;https://api.github.com/gists/e7bea2d20abf2146627a4382472b7b90/commits&quot;,&quot;id&quot;:&quot;e7bea2d20abf2146627a4382472b7b90&quot;,&quot;node_id&quot;:&quot;MDQ6R2lzdGU3YmVhMmQyMGFiZjIxNDY2MjdhNDM4MjQ3MmI3Yjkw&quot;,&quot;git_pull_url&quot;:&quot;https://gist.github.com/e7bea2d20abf2146627a4382472b7b90.git&quot;,&quot;git_push_url&quot;:&quot;https://gist.github.com/e7bea2d20abf2146627a4382472b7b90.git&quot;,&quot;html_url&quot;:&quot;https://gist.github.com/e7bea2d20abf2146627a4382472b7b90&quot;,&quot;files&quot;:{&quot;my_name.py&quot;:{&quot;filename&quot;:&quot;my_name.py&quot;,&quot;type&quot;:&quot;application/x-python&quot;,&quot;language&quot;:&quot;Python&quot;,&quot;raw_url&quot;:&quot;https://gist.githubusercontent.com/pintudinesh/e7bea2d20abf2146627a4382472b7b90/raw/ae3df111a4f598676a84650395536388272d6ea9/my_name.py&quot;,&quot;size&quot;:201,&quot;truncated&quot;:false,&quot;content&quot;:&quot;class PrintMyName:\n\n    def __init__(self, name):\n        self.name &#x3D; name.capitalize()\n       \n    def sayHi(self):\n        print \&quot;My name is  \&quot; + self.name + \&quot;!\&quot;\n\nname &#x3D; MyName(\&quot;Dinesh\&quot;)\nname.sayHi()&quot;},&quot;my_name.rb&quot;:{&quot;filename&quot;:&quot;my_name.rb&quot;,&quot;type&quot;:&quot;application/x-ruby&quot;,&quot;language&quot;:&quot;Ruby&quot;,&quot;raw_url&quot;:&quot;https://gist.githubusercontent.com/pintudinesh/e7bea2d20abf2146627a4382472b7b90/raw/a138014a5c8e80b894181134922d27dfdf263224/my_name.rb&quot;,&quot;size&quot;:168,&quot;truncated&quot;:false,&quot;content&quot;:&quot;class PrintMyName\n   def initialize(name)\n      @name &#x3D; name.capitalize\n   end\n   def sayHi\n      puts \&quot;My name is !\&quot;\n   end\nend\n\nname &#x3D; MyName.new(\&quot;Dinesh\&quot;)\nname.sayHi&quot;},&quot;print_my_name_python.txt&quot;:{&quot;filename&quot;:&quot;print_my_name_python.txt&quot;,&quot;type&quot;:&quot;text/plain&quot;,&quot;language&quot;:&quot;Text&quot;,&quot;raw_url&quot;:&quot;https://gist.githubusercontent.com/pintudinesh/e7bea2d20abf2146627a4382472b7b90/raw/11bc860fb93791a990add8dc4e73656b067a1edd/print_my_name_python.txt&quot;,&quot;size&quot;:56,&quot;truncated&quot;:false,&quot;content&quot;:&quot;Run &#x60;python print_my_name.py&#x60; to print My name is Dinesh&quot;},&quot;print_my_name_ruby.txt&quot;:{&quot;filename&quot;:&quot;print_my_name_ruby.txt&quot;,&quot;type&quot;:&quot;text/plain&quot;,&quot;language&quot;:&quot;Text&quot;,&quot;raw_url&quot;:&quot;https://gist.githubusercontent.com/pintudinesh/e7bea2d20abf2146627a4382472b7b90/raw/73896667b246e3095f0030b4b737612658473cac/print_my_name_ruby.txt&quot;,&quot;size&quot;:54,&quot;truncated&quot;:false,&quot;content&quot;:&quot;Run &#x60;ruby print_my_name.rb&#x60; to print My name is Dinesh&quot;}},&quot;public&quot;:true,&quot;created_at&quot;:&quot;2019-11-11T13:40:37Z&quot;,&quot;updated_at&quot;:&quot;2019-11-11T13:40:37Z&quot;,&quot;description&quot;:&quot;Print my name&quot;,&quot;comments&quot;:0,&quot;user&quot;:null,&quot;comments_url&quot;:&quot;https://api.github.com/gists/e7bea2d20abf2146627a4382472b7b90/comments&quot;,&quot;owner&quot;:{&quot;login&quot;:&quot;pintudinesh&quot;,&quot;id&quot;:54318974,&quot;node_id&quot;:&quot;MDQ6VXNlcjU0MzE4OTc0&quot;,&quot;avatar_url&quot;:&quot;https://avatars0.githubusercontent.com/u/54318974?v&#x3D;4&quot;,&quot;gravatar_id&quot;:&quot;&quot;,&quot;url&quot;:&quot;https://api.github.com/users/pintudinesh&quot;,&quot;html_url&quot;:&quot;https://github.com/pintudinesh&quot;,&quot;followers_url&quot;:&quot;https://api.github.com/users/pintudinesh/followers&quot;,&quot;following_url&quot;:&quot;https://api.github.com/users/pintudinesh/following{/other_user}&quot;,&quot;gists_url&quot;:&quot;https://api.github.com/users/pintudinesh/gists{/gist_id}&quot;,&quot;starred_url&quot;:&quot;https://api.github.com/users/pintudinesh/starred{/owner}{/repo}&quot;,&quot;subscriptions_url&quot;:&quot;https://api.github.com/users/pintudinesh/subscriptions&quot;,&quot;organizations_url&quot;:&quot;https://api.github.com/users/pintudinesh/orgs&quot;,&quot;repos_url&quot;:&quot;https://api.github.com/users/pintudinesh/repos&quot;,&quot;events_url&quot;:&quot;https://api.github.com/users/pintudinesh/events{/privacy}&quot;,&quot;received_events_url&quot;:&quot;https://api.github.com/users/pintudinesh/received_events&quot;,&quot;type&quot;:&quot;User&quot;,&quot;site_admin&quot;:false},&quot;forks&quot;:[],&quot;history&quot;:[{&quot;user&quot;:{&quot;login&quot;:&quot;pintudinesh&quot;,&quot;id&quot;:54318974,&quot;node_id&quot;:&quot;MDQ6VXNlcjU0MzE4OTc0&quot;,&quot;avatar_url&quot;:&quot;https://avatars0.githubusercontent.com/u/54318974?v&#x3D;4&quot;,&quot;gravatar_id&quot;:&quot;&quot;,&quot;url&quot;:&quot;https://api.github.com/users/pintudinesh&quot;,&quot;html_url&quot;:&quot;https://github.com/pintudinesh&quot;,&quot;followers_url&quot;:&quot;https://api.github.com/users/pintudinesh/followers&quot;,&quot;following_url&quot;:&quot;https://api.github.com/users/pintudinesh/following{/other_user}&quot;,&quot;gists_url&quot;:&quot;https://api.github.com/users/pintudinesh/gists{/gist_id}&quot;,&quot;starred_url&quot;:&quot;https://api.github.com/users/pintudinesh/starred{/owner}{/repo}&quot;,&quot;subscriptions_url&quot;:&quot;https://api.github.com/users/pintudinesh/subscriptions&quot;,&quot;organizations_url&quot;:&quot;https://api.github.com/users/pintudinesh/orgs&quot;,&quot;repos_url&quot;:&quot;https://api.github.com/users/pintudinesh/repos&quot;,&quot;events_url&quot;:&quot;https://api.github.com/users/pintudinesh/events{/privacy}&quot;,&quot;received_events_url&quot;:&quot;https://api.github.com/users/pintudinesh/received_events&quot;,&quot;type&quot;:&quot;User&quot;,&quot;site_admin&quot;:false},&quot;version&quot;:&quot;0dec24a31bf20e2bb77f9653bc8420a46d91a20a&quot;,&quot;committed_at&quot;:&quot;2019-11-11T13:40:37Z&quot;,&quot;change_status&quot;:{&quot;total&quot;:23,&quot;additions&quot;:23,&quot;deletions&quot;:0},&quot;url&quot;:&quot;https://api.github.com/gists/e7bea2d20abf2146627a4382472b7b90/0dec24a31bf20e2bb77f9653bc8420a46d91a20a&quot;}],&quot;truncated&quot;:false}</code></pre>
+                                        </div>
+                                        <div class="card-footer">
+                                            <button class="btn btn-secondary copyButton" type="button" data-clipboard-action="copy" data-clipboard-target="#copyText-815052be-dead-4eed-bcc9-283b714742d2">Copy to Clipboard</button>
+                                        </div>
+                                </div>
+                            </div>
+                            </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="card border-info">
+                                <div class="card-body">
+                                <h5 class="card-title text-uppercase text-white text-center bg-info">Test Information</h5>
+                                    <div class="table-responsive text-nowrap">
+                                        <table id="myTable-815052be-dead-4eed-bcc9-283b714742d2" class="table table-hover">
+                                        <thead><tr class="text-center"><th>Name</th><th>Passed</th><th>Failed</th><th>Skipped</th></tr></thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>Status code is 201</td>
+                                                    <td class="text-center bg-success">1</td>
+                                                    <td class="text-center ">0</td>
+                                                    <td class="text-center ">0</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Status code name has string</td>
+                                                    <td class="text-center bg-success">1</td>
+                                                    <td class="text-center ">0</td>
+                                                    <td class="text-center ">0</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Response Body for test case &#x27;As a user, I want to create a public gist.&#x27; matches string</td>
+                                                    <td class="text-center bg-success">1</td>
+                                                    <td class="text-center ">0</td>
+                                                    <td class="text-center ">0</td>
+                                                </tr>
+                                            </tbody>
+                                            <tfoot>
+                                                <tr class="bg-light">
+                                                    <td><strong>Total</strong></td>
+                                                    <td class="text-center">3</td>
+                                                    <td class="text-center">0</td>
+                                                    <td class="text-center">0</td>
+                                                </tr>
+                                            </tfoot>
+                                        </table>
+                                    </div>
+                                    <div class="row d-none">
+                                    <div class="col-sm-12 mb-3">
+                                        <div class="card-deck">
+                                        <div class="card border-danger" style="width: 50rem;">
+                                            <div class="card-body">
+                                                <h5 class="card-title text-uppercase text-white text-center bg-danger">Test Failure</h5>
+                                                <div class="table-responsive">
+                                                    <table class="table table-hover">
+                                                    <thead><tr class="text-nowrap"><th>Test Name</th><th>Assertion Error</th></tr></thead>
+                                                        <tbody>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        </div>
+                                    </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+            </div>
+            <div class="card-deck iteration-0">
+            <div class="row iteration-0">
+                <div class="col-sm-12 mb-3 iteration-0">
+                <div class="card iteration-0">
+                    <div class="card-header  bg-success iteration-0">
+                        <a data-toggle="collapse" href="#" data-target="#collapse-57a90d05-571f-4835-a628-8f6adad9c586" aria-expanded="false" aria-controls="collapse" id="requests-57a90d05-571f-4835-a628-8f6adad9c586" class="collapsed text-white z-block">
+                    Iteration: 1 - As a user, I want to see an existing gist. <i class="float-lg-right fa fa-chevron-down"></i>
+                </a>
+                    </div>
+                    <div id="collapse-57a90d05-571f-4835-a628-8f6adad9c586" class="collapse" aria-labelledby="requests-57a90d05-571f-4835-a628-8f6adad9c586">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-sm-12 mb-3">
+                                <div class="card-deck">
+                                <div class="card border-info" style="width: 50rem;">
+                                    <div class="card-body">
+                                    <h5 class="card-title text-uppercase text-white text-center bg-info">Request Information</h5>
+                                    <span><i class="fas fa-info-circle"></i></span><strong> Request Method:</strong> <span class="badge-outline-success badge badge-success"> GET</span><br>
+                                    <span><i class="fas fa-info-circle"></i></span><strong> Request URL:</strong> <a href="https://api.github.com/gists/e7bea2d20abf2146627a4382472b7b90" target="_blank">https://api.github.com/gists/e7bea2d20abf2146627a4382472b7b90</a><br>
+                                    </div>
+                                </div>
+                                <div class="card border-info" style="width: 50rem;">
+                                    <div class="card-body">
+                                    <h5 class="card-title text-uppercase text-white text-center bg-info">Response Information</h5>
+                                    <span><i class="fas fa-info-circle"></i></span><strong> Response Code:</strong> <span class="float-right badge-outline badge badge-success"> 200 - OK</span><br>
+                                    <span><i class="fas fa-stopwatch"></i></span><strong> Mean time per request:</strong> <span class="float-right badge-outline badge badge-success"> 215ms</span><br>
+                                    <span><i class="fas fa-database"></i></span><strong> Mean size per request:</strong> <span class="float-right badge-outline badge badge-success"> 4.58KB</span><br>
+                                    <hr>
+                                    <h5 class="card-title text-uppercase text-white text-center bg-info">Test Pass Percentage</h5>
+                                    <div>
+                                        <div class="progress" style="height: 40px;">
+                                            <div class="progress-bar  bg-success" style="width: 100%" role="progressbar">
+                                            <h5><strong>100 %</strong></h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    </div>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12 mb-3">
+                                <div class="card-deck">
+                                <div class="card border-info" style="width: 50rem;">
+                                    <div class="card-body">
+                                        <h5 class="card-title text-uppercase text-white text-center bg-info">Request Headers</h5>
+                                        <div class="table-responsive">
+                                            <table class="table table-bordered">
+                                            <thead class="text-white text-center"><tr><th>Header Name</th><th>Header Value</th></tr></thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td class="text-nowrap">Authorization</td>
+                                                        <td>Basic cGludHVkaW5lc2hAZ21haWwuY29tOlNvbmlrYV8wMQ&#x3D;&#x3D;</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="text-nowrap">User-Agent</td>
+                                                        <td>PostmanRuntime/7.18.0</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="text-nowrap">Accept</td>
+                                                        <td>*/*</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="text-nowrap">Cache-Control</td>
+                                                        <td>no-cache</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="text-nowrap">Postman-Token</td>
+                                                        <td>710ac56c-ab9d-4961-b368-f1e1e9523af7</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="text-nowrap">Host</td>
+                                                        <td>api.github.com</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="text-nowrap">Accept-Encoding</td>
+                                                        <td>gzip, deflate</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="text-nowrap">Connection</td>
+                                                        <td>keep-alive</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                        <div class="col-sm-12 mb-3">
+                            <div class="card-deck">
+                            <div class="card border-info" style="width: 50rem;">
+                                <div class="card-body">
+                                    <h5 class="card-title text-uppercase text-white text-center bg-info">Response Headers</h5>
+                                    <div class="table-responsive">
+                                        <table class="table table-bordered">
+                                        <thead class="text-white text-center"><tr><th>Header Name</th><th>Header Value</th></tr></thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td class="text-nowrap">Date</td>
+                                                    <td>Mon, 11 Nov 2019 13:40:38 GMT</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-nowrap">Content-Type</td>
+                                                    <td>application/json; charset&#x3D;utf-8</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-nowrap">Transfer-Encoding</td>
+                                                    <td>chunked</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-nowrap">Server</td>
+                                                    <td>GitHub.com</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-nowrap">Status</td>
+                                                    <td>200 OK</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-nowrap">X-RateLimit-Limit</td>
+                                                    <td>60</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-nowrap">X-RateLimit-Remaining</td>
+                                                    <td>48</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-nowrap">X-RateLimit-Reset</td>
+                                                    <td>1573482977</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-nowrap">Cache-Control</td>
+                                                    <td>private, max-age&#x3D;60, s-maxage&#x3D;60</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-nowrap">Vary</td>
+                                                    <td>Accept, Authorization, Cookie, X-GitHub-OTP</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-nowrap">Vary</td>
+                                                    <td>Accept-Encoding</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-nowrap">ETag</td>
+                                                    <td>W/&quot;75227d38bf75f4e3c5bd0d921be03672&quot;</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-nowrap">Last-Modified</td>
+                                                    <td>Mon, 11 Nov 2019 13:40:38 GMT</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-nowrap">X-GitHub-Media-Type</td>
+                                                    <td>github.v3; format&#x3D;json</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-nowrap">Access-Control-Expose-Headers</td>
+                                                    <td>ETag, Link, Location, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval, X-GitHub-Media-Type</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-nowrap">Access-Control-Allow-Origin</td>
+                                                    <td>*</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-nowrap">Strict-Transport-Security</td>
+                                                    <td>max-age&#x3D;31536000; includeSubdomains; preload</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-nowrap">X-Frame-Options</td>
+                                                    <td>deny</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-nowrap">X-Content-Type-Options</td>
+                                                    <td>nosniff</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-nowrap">X-XSS-Protection</td>
+                                                    <td>1; mode&#x3D;block</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-nowrap">Referrer-Policy</td>
+                                                    <td>origin-when-cross-origin, strict-origin-when-cross-origin</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-nowrap">Content-Security-Policy</td>
+                                                    <td>default-src &#x27;none&#x27;</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-nowrap">Content-Encoding</td>
+                                                    <td>gzip</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-nowrap">X-GitHub-Request-Id</td>
+                                                    <td>DAD1:450D5:2260F7B:290355C:5DC964D6</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                        </div>
+                        <div class="row">
+                        <div class="col-sm-12 mb-3">
+                            <div class="card-deck">
+                            <div class="card border-info" style="width: 50rem;">
+                                <div class="card-body">
+                                    <h5 class="card-title text-uppercase text-white text-center bg-info">Response Body</h5>
+                                        <div class="dyn-height">
+                                                <pre><code id="copyText-8dd114b5-6c26-420b-ba97-847c94df79f4" class="prettyPrint">{&quot;url&quot;:&quot;https://api.github.com/gists/e7bea2d20abf2146627a4382472b7b90&quot;,&quot;forks_url&quot;:&quot;https://api.github.com/gists/e7bea2d20abf2146627a4382472b7b90/forks&quot;,&quot;commits_url&quot;:&quot;https://api.github.com/gists/e7bea2d20abf2146627a4382472b7b90/commits&quot;,&quot;id&quot;:&quot;e7bea2d20abf2146627a4382472b7b90&quot;,&quot;node_id&quot;:&quot;MDQ6R2lzdGU3YmVhMmQyMGFiZjIxNDY2MjdhNDM4MjQ3MmI3Yjkw&quot;,&quot;git_pull_url&quot;:&quot;https://gist.github.com/e7bea2d20abf2146627a4382472b7b90.git&quot;,&quot;git_push_url&quot;:&quot;https://gist.github.com/e7bea2d20abf2146627a4382472b7b90.git&quot;,&quot;html_url&quot;:&quot;https://gist.github.com/e7bea2d20abf2146627a4382472b7b90&quot;,&quot;files&quot;:{&quot;my_name.py&quot;:{&quot;filename&quot;:&quot;my_name.py&quot;,&quot;type&quot;:&quot;application/x-python&quot;,&quot;language&quot;:&quot;Python&quot;,&quot;raw_url&quot;:&quot;https://gist.githubusercontent.com/pintudinesh/e7bea2d20abf2146627a4382472b7b90/raw/ae3df111a4f598676a84650395536388272d6ea9/my_name.py&quot;,&quot;size&quot;:201,&quot;truncated&quot;:false,&quot;content&quot;:&quot;class PrintMyName:\n\n    def __init__(self, name):\n        self.name &#x3D; name.capitalize()\n       \n    def sayHi(self):\n        print \&quot;My name is  \&quot; + self.name + \&quot;!\&quot;\n\nname &#x3D; MyName(\&quot;Dinesh\&quot;)\nname.sayHi()&quot;},&quot;my_name.rb&quot;:{&quot;filename&quot;:&quot;my_name.rb&quot;,&quot;type&quot;:&quot;application/x-ruby&quot;,&quot;language&quot;:&quot;Ruby&quot;,&quot;raw_url&quot;:&quot;https://gist.githubusercontent.com/pintudinesh/e7bea2d20abf2146627a4382472b7b90/raw/a138014a5c8e80b894181134922d27dfdf263224/my_name.rb&quot;,&quot;size&quot;:168,&quot;truncated&quot;:false,&quot;content&quot;:&quot;class PrintMyName\n   def initialize(name)\n      @name &#x3D; name.capitalize\n   end\n   def sayHi\n      puts \&quot;My name is !\&quot;\n   end\nend\n\nname &#x3D; MyName.new(\&quot;Dinesh\&quot;)\nname.sayHi&quot;},&quot;print_my_name_python.txt&quot;:{&quot;filename&quot;:&quot;print_my_name_python.txt&quot;,&quot;type&quot;:&quot;text/plain&quot;,&quot;language&quot;:&quot;Text&quot;,&quot;raw_url&quot;:&quot;https://gist.githubusercontent.com/pintudinesh/e7bea2d20abf2146627a4382472b7b90/raw/11bc860fb93791a990add8dc4e73656b067a1edd/print_my_name_python.txt&quot;,&quot;size&quot;:56,&quot;truncated&quot;:false,&quot;content&quot;:&quot;Run &#x60;python print_my_name.py&#x60; to print My name is Dinesh&quot;},&quot;print_my_name_ruby.txt&quot;:{&quot;filename&quot;:&quot;print_my_name_ruby.txt&quot;,&quot;type&quot;:&quot;text/plain&quot;,&quot;language&quot;:&quot;Text&quot;,&quot;raw_url&quot;:&quot;https://gist.githubusercontent.com/pintudinesh/e7bea2d20abf2146627a4382472b7b90/raw/73896667b246e3095f0030b4b737612658473cac/print_my_name_ruby.txt&quot;,&quot;size&quot;:54,&quot;truncated&quot;:false,&quot;content&quot;:&quot;Run &#x60;ruby print_my_name.rb&#x60; to print My name is Dinesh&quot;}},&quot;public&quot;:true,&quot;created_at&quot;:&quot;2019-11-11T13:40:37Z&quot;,&quot;updated_at&quot;:&quot;2019-11-11T13:40:38Z&quot;,&quot;description&quot;:&quot;Print my name&quot;,&quot;comments&quot;:0,&quot;user&quot;:null,&quot;comments_url&quot;:&quot;https://api.github.com/gists/e7bea2d20abf2146627a4382472b7b90/comments&quot;,&quot;owner&quot;:{&quot;login&quot;:&quot;pintudinesh&quot;,&quot;id&quot;:54318974,&quot;node_id&quot;:&quot;MDQ6VXNlcjU0MzE4OTc0&quot;,&quot;avatar_url&quot;:&quot;https://avatars0.githubusercontent.com/u/54318974?v&#x3D;4&quot;,&quot;gravatar_id&quot;:&quot;&quot;,&quot;url&quot;:&quot;https://api.github.com/users/pintudinesh&quot;,&quot;html_url&quot;:&quot;https://github.com/pintudinesh&quot;,&quot;followers_url&quot;:&quot;https://api.github.com/users/pintudinesh/followers&quot;,&quot;following_url&quot;:&quot;https://api.github.com/users/pintudinesh/following{/other_user}&quot;,&quot;gists_url&quot;:&quot;https://api.github.com/users/pintudinesh/gists{/gist_id}&quot;,&quot;starred_url&quot;:&quot;https://api.github.com/users/pintudinesh/starred{/owner}{/repo}&quot;,&quot;subscriptions_url&quot;:&quot;https://api.github.com/users/pintudinesh/subscriptions&quot;,&quot;organizations_url&quot;:&quot;https://api.github.com/users/pintudinesh/orgs&quot;,&quot;repos_url&quot;:&quot;https://api.github.com/users/pintudinesh/repos&quot;,&quot;events_url&quot;:&quot;https://api.github.com/users/pintudinesh/events{/privacy}&quot;,&quot;received_events_url&quot;:&quot;https://api.github.com/users/pintudinesh/received_events&quot;,&quot;type&quot;:&quot;User&quot;,&quot;site_admin&quot;:false},&quot;forks&quot;:[],&quot;history&quot;:[{&quot;user&quot;:{&quot;login&quot;:&quot;pintudinesh&quot;,&quot;id&quot;:54318974,&quot;node_id&quot;:&quot;MDQ6VXNlcjU0MzE4OTc0&quot;,&quot;avatar_url&quot;:&quot;https://avatars0.githubusercontent.com/u/54318974?v&#x3D;4&quot;,&quot;gravatar_id&quot;:&quot;&quot;,&quot;url&quot;:&quot;https://api.github.com/users/pintudinesh&quot;,&quot;html_url&quot;:&quot;https://github.com/pintudinesh&quot;,&quot;followers_url&quot;:&quot;https://api.github.com/users/pintudinesh/followers&quot;,&quot;following_url&quot;:&quot;https://api.github.com/users/pintudinesh/following{/other_user}&quot;,&quot;gists_url&quot;:&quot;https://api.github.com/users/pintudinesh/gists{/gist_id}&quot;,&quot;starred_url&quot;:&quot;https://api.github.com/users/pintudinesh/starred{/owner}{/repo}&quot;,&quot;subscriptions_url&quot;:&quot;https://api.github.com/users/pintudinesh/subscriptions&quot;,&quot;organizations_url&quot;:&quot;https://api.github.com/users/pintudinesh/orgs&quot;,&quot;repos_url&quot;:&quot;https://api.github.com/users/pintudinesh/repos&quot;,&quot;events_url&quot;:&quot;https://api.github.com/users/pintudinesh/events{/privacy}&quot;,&quot;received_events_url&quot;:&quot;https://api.github.com/users/pintudinesh/received_events&quot;,&quot;type&quot;:&quot;User&quot;,&quot;site_admin&quot;:false},&quot;version&quot;:&quot;0dec24a31bf20e2bb77f9653bc8420a46d91a20a&quot;,&quot;committed_at&quot;:&quot;2019-11-11T13:40:37Z&quot;,&quot;change_status&quot;:{&quot;total&quot;:23,&quot;additions&quot;:23,&quot;deletions&quot;:0},&quot;url&quot;:&quot;https://api.github.com/gists/e7bea2d20abf2146627a4382472b7b90/0dec24a31bf20e2bb77f9653bc8420a46d91a20a&quot;}],&quot;truncated&quot;:false}</code></pre>
+                                        </div>
+                                        <div class="card-footer">
+                                            <button class="btn btn-secondary copyButton" type="button" data-clipboard-action="copy" data-clipboard-target="#copyText-8dd114b5-6c26-420b-ba97-847c94df79f4">Copy to Clipboard</button>
+                                        </div>
+                                </div>
+                            </div>
+                            </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="card border-info">
+                                <div class="card-body">
+                                <h5 class="card-title text-uppercase text-white text-center bg-info">Test Information</h5>
+                                    <div class="table-responsive text-nowrap">
+                                        <table id="myTable-8dd114b5-6c26-420b-ba97-847c94df79f4" class="table table-hover">
+                                        <thead><tr class="text-center"><th>Name</th><th>Passed</th><th>Failed</th><th>Skipped</th></tr></thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>Status code is 200</td>
+                                                    <td class="text-center bg-success">1</td>
+                                                    <td class="text-center ">0</td>
+                                                    <td class="text-center ">0</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Status code name has string</td>
+                                                    <td class="text-center bg-success">1</td>
+                                                    <td class="text-center ">0</td>
+                                                    <td class="text-center ">0</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Response Body for test case &#x27;As a user, I want to see my existing gist using id.&#x27; matches string</td>
+                                                    <td class="text-center bg-success">1</td>
+                                                    <td class="text-center ">0</td>
+                                                    <td class="text-center ">0</td>
+                                                </tr>
+                                            </tbody>
+                                            <tfoot>
+                                                <tr class="bg-light">
+                                                    <td><strong>Total</strong></td>
+                                                    <td class="text-center">3</td>
+                                                    <td class="text-center">0</td>
+                                                    <td class="text-center">0</td>
+                                                </tr>
+                                            </tfoot>
+                                        </table>
+                                    </div>
+                                    <div class="row d-none">
+                                    <div class="col-sm-12 mb-3">
+                                        <div class="card-deck">
+                                        <div class="card border-danger" style="width: 50rem;">
+                                            <div class="card-body">
+                                                <h5 class="card-title text-uppercase text-white text-center bg-danger">Test Failure</h5>
+                                                <div class="table-responsive">
+                                                    <table class="table table-hover">
+                                                    <thead><tr class="text-nowrap"><th>Test Name</th><th>Assertion Error</th></tr></thead>
+                                                        <tbody>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        </div>
+                                    </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+            </div>
+            <div class="card-deck iteration-0">
+            <div class="row iteration-0">
+                <div class="col-sm-12 mb-3 iteration-0">
+                <div class="card iteration-0">
+                    <div class="card-header  bg-success iteration-0">
+                        <a data-toggle="collapse" href="#" data-target="#collapse-0f1a8341-8691-44e9-a1a0-907782f07a90" aria-expanded="false" aria-controls="collapse" id="requests-0f1a8341-8691-44e9-a1a0-907782f07a90" class="collapsed text-white z-block">
+                    Iteration: 1 - As a user, I want to edit an existing gist. <i class="float-lg-right fa fa-chevron-down"></i>
+                </a>
+                    </div>
+                    <div id="collapse-0f1a8341-8691-44e9-a1a0-907782f07a90" class="collapse" aria-labelledby="requests-0f1a8341-8691-44e9-a1a0-907782f07a90">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-sm-12 mb-3">
+                                <div class="card-deck">
+                                <div class="card border-info" style="width: 50rem;">
+                                    <div class="card-body">
+                                    <h5 class="card-title text-uppercase text-white text-center bg-info">Request Information</h5>
+                                    <span><i class="fas fa-info-circle"></i></span><strong> Request Method:</strong> <span class="badge-outline-success badge badge-success"> PATCH</span><br>
+                                    <span><i class="fas fa-info-circle"></i></span><strong> Request URL:</strong> <a href="https://api.github.com/gists/e7bea2d20abf2146627a4382472b7b90" target="_blank">https://api.github.com/gists/e7bea2d20abf2146627a4382472b7b90</a><br>
+                                    </div>
+                                </div>
+                                <div class="card border-info" style="width: 50rem;">
+                                    <div class="card-body">
+                                    <h5 class="card-title text-uppercase text-white text-center bg-info">Response Information</h5>
+                                    <span><i class="fas fa-info-circle"></i></span><strong> Response Code:</strong> <span class="float-right badge-outline badge badge-success"> 200 - OK</span><br>
+                                    <span><i class="fas fa-stopwatch"></i></span><strong> Mean time per request:</strong> <span class="float-right badge-outline badge badge-success"> 1050ms</span><br>
+                                    <span><i class="fas fa-database"></i></span><strong> Mean size per request:</strong> <span class="float-right badge-outline badge badge-success"> 5.69KB</span><br>
+                                    <hr>
+                                    <h5 class="card-title text-uppercase text-white text-center bg-info">Test Pass Percentage</h5>
+                                    <div>
+                                        <div class="progress" style="height: 40px;">
+                                            <div class="progress-bar  bg-success" style="width: 100%" role="progressbar">
+                                            <h5><strong>100 %</strong></h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    </div>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12 mb-3">
+                                <div class="card-deck">
+                                <div class="card border-info" style="width: 50rem;">
+                                    <div class="card-body">
+                                        <h5 class="card-title text-uppercase text-white text-center bg-info">Request Headers</h5>
+                                        <div class="table-responsive">
+                                            <table class="table table-bordered">
+                                            <thead class="text-white text-center"><tr><th>Header Name</th><th>Header Value</th></tr></thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td class="text-nowrap">Content-Type</td>
+                                                        <td>application/json</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="text-nowrap">Authorization</td>
+                                                        <td>Basic cGludHVkaW5lc2hAZ21haWwuY29tOlNvbmlrYV8wMQ&#x3D;&#x3D;</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="text-nowrap">User-Agent</td>
+                                                        <td>PostmanRuntime/7.18.0</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="text-nowrap">Accept</td>
+                                                        <td>*/*</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="text-nowrap">Cache-Control</td>
+                                                        <td>no-cache</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="text-nowrap">Postman-Token</td>
+                                                        <td>c19e3741-6633-48fa-8851-3ee05e08622c</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="text-nowrap">Host</td>
+                                                        <td>api.github.com</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="text-nowrap">Accept-Encoding</td>
+                                                        <td>gzip, deflate</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="text-nowrap">Content-Length</td>
+                                                        <td>334</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="text-nowrap">Connection</td>
+                                                        <td>keep-alive</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                        <div class="col-sm-12 mb-3">
+                            <div class="card-deck">
+                            <div class="card border-info" style="width: 50rem;">
+                                <div class="card-body">
+                                    <h5 class="card-title text-uppercase text-white text-center bg-info">Request Body</h5>
+                                        <div class="dyn-height">
+                                            <pre><code id="copyReqText-2" class="prettyPrint">{
+          &quot;description&quot;: &quot;Print my name&quot;,
+          &quot;files&quot;: {
+            &quot;print_my_name_ruby.txt&quot;: {
+              &quot;content&quot;: &quot;Run &#x60;ruby print_my_name.rb&#x60; to print My name is Dinesh&quot;,
+              &quot;filename&quot;: &quot;print_my_name.md&quot;
+            },
+            &quot;print_my_name_python.txt&quot;: null,
+            &quot;new_file.txt&quot;: {
+              &quot;content&quot;: &quot;This is a new placeholder file.&quot;
+            }
+          }
+        }</code></pre>
+                                        </div>
+                                        <div class="card-footer">
+                                            <button class="btn btn-outline-secondary btn-sm copyButton" type="button" data-clipboard-action="copy" data-clipboard-target="#copyReqText-2">Copy to Clipboard</button>
+                                        </div>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                        </div>
+                        <div class="row">
+                        <div class="col-sm-12 mb-3">
+                            <div class="card-deck">
+                            <div class="card border-info" style="width: 50rem;">
+                                <div class="card-body">
+                                    <h5 class="card-title text-uppercase text-white text-center bg-info">Response Headers</h5>
+                                    <div class="table-responsive">
+                                        <table class="table table-bordered">
+                                        <thead class="text-white text-center"><tr><th>Header Name</th><th>Header Value</th></tr></thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td class="text-nowrap">Date</td>
+                                                    <td>Mon, 11 Nov 2019 13:40:39 GMT</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-nowrap">Content-Type</td>
+                                                    <td>application/json; charset&#x3D;utf-8</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-nowrap">Transfer-Encoding</td>
+                                                    <td>chunked</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-nowrap">Server</td>
+                                                    <td>GitHub.com</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-nowrap">Status</td>
+                                                    <td>200 OK</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-nowrap">X-RateLimit-Limit</td>
+                                                    <td>60</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-nowrap">X-RateLimit-Remaining</td>
+                                                    <td>47</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-nowrap">X-RateLimit-Reset</td>
+                                                    <td>1573482977</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-nowrap">Cache-Control</td>
+                                                    <td>private, max-age&#x3D;60, s-maxage&#x3D;60</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-nowrap">Vary</td>
+                                                    <td>Accept, Authorization, Cookie, X-GitHub-OTP</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-nowrap">Vary</td>
+                                                    <td>Accept-Encoding</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-nowrap">ETag</td>
+                                                    <td>W/&quot;6b3c7aa2eeb989f69c62e370ac1282db&quot;</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-nowrap">X-GitHub-Media-Type</td>
+                                                    <td>github.v3; format&#x3D;json</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-nowrap">Access-Control-Expose-Headers</td>
+                                                    <td>ETag, Link, Location, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval, X-GitHub-Media-Type</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-nowrap">Access-Control-Allow-Origin</td>
+                                                    <td>*</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-nowrap">Strict-Transport-Security</td>
+                                                    <td>max-age&#x3D;31536000; includeSubdomains; preload</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-nowrap">X-Frame-Options</td>
+                                                    <td>deny</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-nowrap">X-Content-Type-Options</td>
+                                                    <td>nosniff</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-nowrap">X-XSS-Protection</td>
+                                                    <td>1; mode&#x3D;block</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-nowrap">Referrer-Policy</td>
+                                                    <td>origin-when-cross-origin, strict-origin-when-cross-origin</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-nowrap">Content-Security-Policy</td>
+                                                    <td>default-src &#x27;none&#x27;</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-nowrap">Content-Encoding</td>
+                                                    <td>gzip</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-nowrap">X-GitHub-Request-Id</td>
+                                                    <td>DAD1:450D5:2260FB7:29035C1:5DC964D6</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                        </div>
+                        <div class="row">
+                        <div class="col-sm-12 mb-3">
+                            <div class="card-deck">
+                            <div class="card border-info" style="width: 50rem;">
+                                <div class="card-body">
+                                    <h5 class="card-title text-uppercase text-white text-center bg-info">Response Body</h5>
+                                        <div class="dyn-height">
+                                                <pre><code id="copyText-e2d4b381-0599-4a7f-9ea1-e82a26e17f27" class="prettyPrint">{&quot;url&quot;:&quot;https://api.github.com/gists/e7bea2d20abf2146627a4382472b7b90&quot;,&quot;forks_url&quot;:&quot;https://api.github.com/gists/e7bea2d20abf2146627a4382472b7b90/forks&quot;,&quot;commits_url&quot;:&quot;https://api.github.com/gists/e7bea2d20abf2146627a4382472b7b90/commits&quot;,&quot;id&quot;:&quot;e7bea2d20abf2146627a4382472b7b90&quot;,&quot;node_id&quot;:&quot;MDQ6R2lzdGU3YmVhMmQyMGFiZjIxNDY2MjdhNDM4MjQ3MmI3Yjkw&quot;,&quot;git_pull_url&quot;:&quot;https://gist.github.com/e7bea2d20abf2146627a4382472b7b90.git&quot;,&quot;git_push_url&quot;:&quot;https://gist.github.com/e7bea2d20abf2146627a4382472b7b90.git&quot;,&quot;html_url&quot;:&quot;https://gist.github.com/e7bea2d20abf2146627a4382472b7b90&quot;,&quot;files&quot;:{&quot;my_name.py&quot;:{&quot;filename&quot;:&quot;my_name.py&quot;,&quot;type&quot;:&quot;application/x-python&quot;,&quot;language&quot;:&quot;Python&quot;,&quot;raw_url&quot;:&quot;https://gist.githubusercontent.com/pintudinesh/e7bea2d20abf2146627a4382472b7b90/raw/ae3df111a4f598676a84650395536388272d6ea9/my_name.py&quot;,&quot;size&quot;:201,&quot;truncated&quot;:false,&quot;content&quot;:&quot;class PrintMyName:\n\n    def __init__(self, name):\n        self.name &#x3D; name.capitalize()\n       \n    def sayHi(self):\n        print \&quot;My name is  \&quot; + self.name + \&quot;!\&quot;\n\nname &#x3D; MyName(\&quot;Dinesh\&quot;)\nname.sayHi()&quot;},&quot;my_name.rb&quot;:{&quot;filename&quot;:&quot;my_name.rb&quot;,&quot;type&quot;:&quot;application/x-ruby&quot;,&quot;language&quot;:&quot;Ruby&quot;,&quot;raw_url&quot;:&quot;https://gist.githubusercontent.com/pintudinesh/e7bea2d20abf2146627a4382472b7b90/raw/a138014a5c8e80b894181134922d27dfdf263224/my_name.rb&quot;,&quot;size&quot;:168,&quot;truncated&quot;:false,&quot;content&quot;:&quot;class PrintMyName\n   def initialize(name)\n      @name &#x3D; name.capitalize\n   end\n   def sayHi\n      puts \&quot;My name is !\&quot;\n   end\nend\n\nname &#x3D; MyName.new(\&quot;Dinesh\&quot;)\nname.sayHi&quot;},&quot;new_file.txt&quot;:{&quot;filename&quot;:&quot;new_file.txt&quot;,&quot;type&quot;:&quot;text/plain&quot;,&quot;language&quot;:&quot;Text&quot;,&quot;raw_url&quot;:&quot;https://gist.githubusercontent.com/pintudinesh/e7bea2d20abf2146627a4382472b7b90/raw/56ab7bdf864fa11c1e16acce2a5116171514d2d1/new_file.txt&quot;,&quot;size&quot;:31,&quot;truncated&quot;:false,&quot;content&quot;:&quot;This is a new placeholder file.&quot;},&quot;print_my_name.md&quot;:{&quot;filename&quot;:&quot;print_my_name.md&quot;,&quot;type&quot;:&quot;text/markdown&quot;,&quot;language&quot;:&quot;Markdown&quot;,&quot;raw_url&quot;:&quot;https://gist.githubusercontent.com/pintudinesh/e7bea2d20abf2146627a4382472b7b90/raw/73896667b246e3095f0030b4b737612658473cac/print_my_name.md&quot;,&quot;size&quot;:54,&quot;truncated&quot;:false,&quot;content&quot;:&quot;Run &#x60;ruby print_my_name.rb&#x60; to print My name is Dinesh&quot;}},&quot;public&quot;:true,&quot;created_at&quot;:&quot;2019-11-11T13:40:37Z&quot;,&quot;updated_at&quot;:&quot;2019-11-11T13:40:39Z&quot;,&quot;description&quot;:&quot;Print my name&quot;,&quot;comments&quot;:0,&quot;user&quot;:null,&quot;comments_url&quot;:&quot;https://api.github.com/gists/e7bea2d20abf2146627a4382472b7b90/comments&quot;,&quot;owner&quot;:{&quot;login&quot;:&quot;pintudinesh&quot;,&quot;id&quot;:54318974,&quot;node_id&quot;:&quot;MDQ6VXNlcjU0MzE4OTc0&quot;,&quot;avatar_url&quot;:&quot;https://avatars0.githubusercontent.com/u/54318974?v&#x3D;4&quot;,&quot;gravatar_id&quot;:&quot;&quot;,&quot;url&quot;:&quot;https://api.github.com/users/pintudinesh&quot;,&quot;html_url&quot;:&quot;https://github.com/pintudinesh&quot;,&quot;followers_url&quot;:&quot;https://api.github.com/users/pintudinesh/followers&quot;,&quot;following_url&quot;:&quot;https://api.github.com/users/pintudinesh/following{/other_user}&quot;,&quot;gists_url&quot;:&quot;https://api.github.com/users/pintudinesh/gists{/gist_id}&quot;,&quot;starred_url&quot;:&quot;https://api.github.com/users/pintudinesh/starred{/owner}{/repo}&quot;,&quot;subscriptions_url&quot;:&quot;https://api.github.com/users/pintudinesh/subscriptions&quot;,&quot;organizations_url&quot;:&quot;https://api.github.com/users/pintudinesh/orgs&quot;,&quot;repos_url&quot;:&quot;https://api.github.com/users/pintudinesh/repos&quot;,&quot;events_url&quot;:&quot;https://api.github.com/users/pintudinesh/events{/privacy}&quot;,&quot;received_events_url&quot;:&quot;https://api.github.com/users/pintudinesh/received_events&quot;,&quot;type&quot;:&quot;User&quot;,&quot;site_admin&quot;:false},&quot;forks&quot;:[],&quot;history&quot;:[{&quot;user&quot;:{&quot;login&quot;:&quot;pintudinesh&quot;,&quot;id&quot;:54318974,&quot;node_id&quot;:&quot;MDQ6VXNlcjU0MzE4OTc0&quot;,&quot;avatar_url&quot;:&quot;https://avatars0.githubusercontent.com/u/54318974?v&#x3D;4&quot;,&quot;gravatar_id&quot;:&quot;&quot;,&quot;url&quot;:&quot;https://api.github.com/users/pintudinesh&quot;,&quot;html_url&quot;:&quot;https://github.com/pintudinesh&quot;,&quot;followers_url&quot;:&quot;https://api.github.com/users/pintudinesh/followers&quot;,&quot;following_url&quot;:&quot;https://api.github.com/users/pintudinesh/following{/other_user}&quot;,&quot;gists_url&quot;:&quot;https://api.github.com/users/pintudinesh/gists{/gist_id}&quot;,&quot;starred_url&quot;:&quot;https://api.github.com/users/pintudinesh/starred{/owner}{/repo}&quot;,&quot;subscriptions_url&quot;:&quot;https://api.github.com/users/pintudinesh/subscriptions&quot;,&quot;organizations_url&quot;:&quot;https://api.github.com/users/pintudinesh/orgs&quot;,&quot;repos_url&quot;:&quot;https://api.github.com/users/pintudinesh/repos&quot;,&quot;events_url&quot;:&quot;https://api.github.com/users/pintudinesh/events{/privacy}&quot;,&quot;received_events_url&quot;:&quot;https://api.github.com/users/pintudinesh/received_events&quot;,&quot;type&quot;:&quot;User&quot;,&quot;site_admin&quot;:false},&quot;version&quot;:&quot;ee5306d7cde5c948efbc5d4df415bb231fb40225&quot;,&quot;committed_at&quot;:&quot;2019-11-11T13:40:39Z&quot;,&quot;change_status&quot;:{&quot;total&quot;:2,&quot;additions&quot;:1,&quot;deletions&quot;:1},&quot;url&quot;:&quot;https://api.github.com/gists/e7bea2d20abf2146627a4382472b7b90/ee5306d7cde5c948efbc5d4df415bb231fb40225&quot;},{&quot;user&quot;:{&quot;login&quot;:&quot;pintudinesh&quot;,&quot;id&quot;:54318974,&quot;node_id&quot;:&quot;MDQ6VXNlcjU0MzE4OTc0&quot;,&quot;avatar_url&quot;:&quot;https://avatars0.githubusercontent.com/u/54318974?v&#x3D;4&quot;,&quot;gravatar_id&quot;:&quot;&quot;,&quot;url&quot;:&quot;https://api.github.com/users/pintudinesh&quot;,&quot;html_url&quot;:&quot;https://github.com/pintudinesh&quot;,&quot;followers_url&quot;:&quot;https://api.github.com/users/pintudinesh/followers&quot;,&quot;following_url&quot;:&quot;https://api.github.com/users/pintudinesh/following{/other_user}&quot;,&quot;gists_url&quot;:&quot;https://api.github.com/users/pintudinesh/gists{/gist_id}&quot;,&quot;starred_url&quot;:&quot;https://api.github.com/users/pintudinesh/starred{/owner}{/repo}&quot;,&quot;subscriptions_url&quot;:&quot;https://api.github.com/users/pintudinesh/subscriptions&quot;,&quot;organizations_url&quot;:&quot;https://api.github.com/users/pintudinesh/orgs&quot;,&quot;repos_url&quot;:&quot;https://api.github.com/users/pintudinesh/repos&quot;,&quot;events_url&quot;:&quot;https://api.github.com/users/pintudinesh/events{/privacy}&quot;,&quot;received_events_url&quot;:&quot;https://api.github.com/users/pintudinesh/received_events&quot;,&quot;type&quot;:&quot;User&quot;,&quot;site_admin&quot;:false},&quot;version&quot;:&quot;0dec24a31bf20e2bb77f9653bc8420a46d91a20a&quot;,&quot;committed_at&quot;:&quot;2019-11-11T13:40:37Z&quot;,&quot;change_status&quot;:{&quot;total&quot;:23,&quot;additions&quot;:23,&quot;deletions&quot;:0},&quot;url&quot;:&quot;https://api.github.com/gists/e7bea2d20abf2146627a4382472b7b90/0dec24a31bf20e2bb77f9653bc8420a46d91a20a&quot;}],&quot;truncated&quot;:false}</code></pre>
+                                        </div>
+                                        <div class="card-footer">
+                                            <button class="btn btn-secondary copyButton" type="button" data-clipboard-action="copy" data-clipboard-target="#copyText-e2d4b381-0599-4a7f-9ea1-e82a26e17f27">Copy to Clipboard</button>
+                                        </div>
+                                </div>
+                            </div>
+                            </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="card border-info">
+                                <div class="card-body">
+                                <h5 class="card-title text-uppercase text-white text-center bg-info">Test Information</h5>
+                                    <div class="table-responsive text-nowrap">
+                                        <table id="myTable-e2d4b381-0599-4a7f-9ea1-e82a26e17f27" class="table table-hover">
+                                        <thead><tr class="text-center"><th>Name</th><th>Passed</th><th>Failed</th><th>Skipped</th></tr></thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>Status code is 200</td>
+                                                    <td class="text-center bg-success">1</td>
+                                                    <td class="text-center ">0</td>
+                                                    <td class="text-center ">0</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Status code name has string</td>
+                                                    <td class="text-center bg-success">1</td>
+                                                    <td class="text-center ">0</td>
+                                                    <td class="text-center ">0</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Response Body for test case &#x27;As a user, I want to edit an existing gist.&#x27; matches string</td>
+                                                    <td class="text-center bg-success">1</td>
+                                                    <td class="text-center ">0</td>
+                                                    <td class="text-center ">0</td>
+                                                </tr>
+                                            </tbody>
+                                            <tfoot>
+                                                <tr class="bg-light">
+                                                    <td><strong>Total</strong></td>
+                                                    <td class="text-center">3</td>
+                                                    <td class="text-center">0</td>
+                                                    <td class="text-center">0</td>
+                                                </tr>
+                                            </tfoot>
+                                        </table>
+                                    </div>
+                                    <div class="row d-none">
+                                    <div class="col-sm-12 mb-3">
+                                        <div class="card-deck">
+                                        <div class="card border-danger" style="width: 50rem;">
+                                            <div class="card-body">
+                                                <h5 class="card-title text-uppercase text-white text-center bg-danger">Test Failure</h5>
+                                                <div class="table-responsive">
+                                                    <table class="table table-hover">
+                                                    <thead><tr class="text-nowrap"><th>Test Name</th><th>Assertion Error</th></tr></thead>
+                                                        <tbody>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        </div>
+                                    </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+            </div>
+            <div class="card-deck iteration-0">
+            <div class="row iteration-0">
+                <div class="col-sm-12 mb-3 iteration-0">
+                <div class="card iteration-0">
+                    <div class="card-header  bg-success iteration-0">
+                        <a data-toggle="collapse" href="#" data-target="#collapse-89364341-a609-4dfd-9292-41fad229967b" aria-expanded="false" aria-controls="collapse" id="requests-89364341-a609-4dfd-9292-41fad229967b" class="collapsed text-white z-block">
+                    Iteration: 1 - As a user, I want to delete an existing gist. <i class="float-lg-right fa fa-chevron-down"></i>
+                </a>
+                    </div>
+                    <div id="collapse-89364341-a609-4dfd-9292-41fad229967b" class="collapse" aria-labelledby="requests-89364341-a609-4dfd-9292-41fad229967b">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-sm-12 mb-3">
+                                <div class="card-deck">
+                                <div class="card border-info" style="width: 50rem;">
+                                    <div class="card-body">
+                                    <h5 class="card-title text-uppercase text-white text-center bg-info">Request Information</h5>
+                                    <span><i class="fas fa-info-circle"></i></span><strong> Request Method:</strong> <span class="badge-outline-success badge badge-success"> DELETE</span><br>
+                                    <span><i class="fas fa-info-circle"></i></span><strong> Request URL:</strong> <a href="https://api.github.com/gists/e7bea2d20abf2146627a4382472b7b90" target="_blank">https://api.github.com/gists/e7bea2d20abf2146627a4382472b7b90</a><br>
+                                    </div>
+                                </div>
+                                <div class="card border-info" style="width: 50rem;">
+                                    <div class="card-body">
+                                    <h5 class="card-title text-uppercase text-white text-center bg-info">Response Information</h5>
+                                    <span><i class="fas fa-info-circle"></i></span><strong> Response Code:</strong> <span class="float-right badge-outline badge badge-success"> 204 - No Content</span><br>
+                                    <span><i class="fas fa-stopwatch"></i></span><strong> Mean time per request:</strong> <span class="float-right badge-outline badge badge-success"> 392ms</span><br>
+                                    <span><i class="fas fa-database"></i></span><strong> Mean size per request:</strong> <span class="float-right badge-outline badge badge-success"> 0B</span><br>
+                                    <hr>
+                                    <h5 class="card-title text-uppercase text-white text-center bg-info">Test Pass Percentage</h5>
+                                    <div>
+                                        <div class="progress" style="height: 40px;">
+                                            <div class="progress-bar  bg-success" style="width: 100%" role="progressbar">
+                                            <h5><strong>100 %</strong></h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    </div>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12 mb-3">
+                                <div class="card-deck">
+                                <div class="card border-info" style="width: 50rem;">
+                                    <div class="card-body">
+                                        <h5 class="card-title text-uppercase text-white text-center bg-info">Request Headers</h5>
+                                        <div class="table-responsive">
+                                            <table class="table table-bordered">
+                                            <thead class="text-white text-center"><tr><th>Header Name</th><th>Header Value</th></tr></thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td class="text-nowrap">Authorization</td>
+                                                        <td>Basic cGludHVkaW5lc2hAZ21haWwuY29tOlNvbmlrYV8wMQ&#x3D;&#x3D;</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="text-nowrap">User-Agent</td>
+                                                        <td>PostmanRuntime/7.18.0</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="text-nowrap">Accept</td>
+                                                        <td>*/*</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="text-nowrap">Cache-Control</td>
+                                                        <td>no-cache</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="text-nowrap">Postman-Token</td>
+                                                        <td>801a4711-670e-47d6-9442-9df49ceeb4ab</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="text-nowrap">Host</td>
+                                                        <td>api.github.com</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="text-nowrap">Accept-Encoding</td>
+                                                        <td>gzip, deflate</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="text-nowrap">Content-Length</td>
+                                                        <td>0</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="text-nowrap">Connection</td>
+                                                        <td>keep-alive</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                        <div class="col-sm-12 mb-3">
+                            <div class="card-deck">
+                            <div class="card border-info" style="width: 50rem;">
+                                <div class="card-body">
+                                    <h5 class="card-title text-uppercase text-white text-center bg-info">Response Headers</h5>
+                                    <div class="table-responsive">
+                                        <table class="table table-bordered">
+                                        <thead class="text-white text-center"><tr><th>Header Name</th><th>Header Value</th></tr></thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td class="text-nowrap">Date</td>
+                                                    <td>Mon, 11 Nov 2019 13:40:40 GMT</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-nowrap">Server</td>
+                                                    <td>GitHub.com</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-nowrap">Status</td>
+                                                    <td>204 No Content</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-nowrap">X-RateLimit-Limit</td>
+                                                    <td>60</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-nowrap">X-RateLimit-Remaining</td>
+                                                    <td>46</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-nowrap">X-RateLimit-Reset</td>
+                                                    <td>1573482977</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-nowrap">X-GitHub-Media-Type</td>
+                                                    <td>github.v3; format&#x3D;json</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-nowrap">Access-Control-Expose-Headers</td>
+                                                    <td>ETag, Link, Location, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval, X-GitHub-Media-Type</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-nowrap">Access-Control-Allow-Origin</td>
+                                                    <td>*</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-nowrap">Strict-Transport-Security</td>
+                                                    <td>max-age&#x3D;31536000; includeSubdomains; preload</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-nowrap">X-Frame-Options</td>
+                                                    <td>deny</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-nowrap">X-Content-Type-Options</td>
+                                                    <td>nosniff</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-nowrap">X-XSS-Protection</td>
+                                                    <td>1; mode&#x3D;block</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-nowrap">Referrer-Policy</td>
+                                                    <td>origin-when-cross-origin, strict-origin-when-cross-origin</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-nowrap">Content-Security-Policy</td>
+                                                    <td>default-src &#x27;none&#x27;</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-nowrap">Vary</td>
+                                                    <td>Accept-Encoding</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-nowrap">X-GitHub-Request-Id</td>
+                                                    <td>DAD1:450D5:2261098:29036D1:5DC964D7</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                        </div>
+                        <div class="row">
+                        <div class="col-sm-12 mb-3">
+                            <div class="card-deck">
+                            <div class="card border-info" style="width: 50rem;">
+                                <div class="card-body">
+                                    <h5 class="card-title text-uppercase text-white text-center bg-info">Response Body</h5>
+                                    <h5 class="alert alert-success text-uppercase text-center">No Response Body for this request</h5>
+                                </div>
+                            </div>
+                            </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="card border-info">
+                                <div class="card-body">
+                                <h5 class="card-title text-uppercase text-white text-center bg-info">Test Information</h5>
+                                    <div class="table-responsive text-nowrap">
+                                        <table id="myTable-b5805533-19de-4d30-bbdf-47c3fcc51458" class="table table-hover">
+                                        <thead><tr class="text-center"><th>Name</th><th>Passed</th><th>Failed</th><th>Skipped</th></tr></thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>Status code is 204</td>
+                                                    <td class="text-center bg-success">1</td>
+                                                    <td class="text-center ">0</td>
+                                                    <td class="text-center ">0</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Status code name has string</td>
+                                                    <td class="text-center bg-success">1</td>
+                                                    <td class="text-center ">0</td>
+                                                    <td class="text-center ">0</td>
+                                                </tr>
+                                            </tbody>
+                                            <tfoot>
+                                                <tr class="bg-light">
+                                                    <td><strong>Total</strong></td>
+                                                    <td class="text-center">2</td>
+                                                    <td class="text-center">0</td>
+                                                    <td class="text-center">0</td>
+                                                </tr>
+                                            </tfoot>
+                                        </table>
+                                    </div>
+                                    <div class="row d-none">
+                                    <div class="col-sm-12 mb-3">
+                                        <div class="card-deck">
+                                        <div class="card border-danger" style="width: 50rem;">
+                                            <div class="card-body">
+                                                <h5 class="card-title text-uppercase text-white text-center bg-danger">Test Failure</h5>
+                                                <div class="table-responsive">
+                                                    <table class="table table-hover">
+                                                    <thead><tr class="text-nowrap"><th>Test Name</th><th>Assertion Error</th></tr></thead>
+                                                        <tbody>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        </div>
+                                    </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+            </div>
+            <div class="card-deck iteration-0">
+            <div class="row iteration-0">
+                <div class="col-sm-12 mb-3 iteration-0">
+                <div class="card iteration-0">
+                    <div class="card-header  bg-success iteration-0">
+                        <a data-toggle="collapse" href="#" data-target="#collapse-94633478-3a53-4c92-9e1d-542c23b7c9e9" aria-expanded="false" aria-controls="collapse" id="requests-94633478-3a53-4c92-9e1d-542c23b7c9e9" class="collapsed text-white z-block">
+                    Iteration: 1 - As a user, I want to see a gist that does not exist <i class="float-lg-right fa fa-chevron-down"></i>
+                </a>
+                    </div>
+                    <div id="collapse-94633478-3a53-4c92-9e1d-542c23b7c9e9" class="collapse" aria-labelledby="requests-94633478-3a53-4c92-9e1d-542c23b7c9e9">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-sm-12 mb-3">
+                                <div class="card-deck">
+                                <div class="card border-info" style="width: 50rem;">
+                                    <div class="card-body">
+                                    <h5 class="card-title text-uppercase text-white text-center bg-info">Request Information</h5>
+                                    <span><i class="fas fa-info-circle"></i></span><strong> Request Method:</strong> <span class="badge-outline-success badge badge-success"> GET</span><br>
+                                    <span><i class="fas fa-info-circle"></i></span><strong> Request URL:</strong> <a href="https://api.github.com/gists/abc" target="_blank">https://api.github.com/gists/abc</a><br>
+                                    </div>
+                                </div>
+                                <div class="card border-info" style="width: 50rem;">
+                                    <div class="card-body">
+                                    <h5 class="card-title text-uppercase text-white text-center bg-info">Response Information</h5>
+                                    <span><i class="fas fa-info-circle"></i></span><strong> Response Code:</strong> <span class="float-right badge-outline badge badge-success"> 404 - Not Found</span><br>
+                                    <span><i class="fas fa-stopwatch"></i></span><strong> Mean time per request:</strong> <span class="float-right badge-outline badge badge-success"> 177ms</span><br>
+                                    <span><i class="fas fa-database"></i></span><strong> Mean size per request:</strong> <span class="float-right badge-outline badge badge-success"> 102B</span><br>
+                                    <hr>
+                                    <h5 class="card-title text-uppercase text-white text-center bg-info">Test Pass Percentage</h5>
+                                    <div>
+                                        <div class="progress" style="height: 40px;">
+                                            <div class="progress-bar  bg-success" style="width: 100%" role="progressbar">
+                                            <h5><strong>100 %</strong></h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    </div>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12 mb-3">
+                                <div class="card-deck">
+                                <div class="card border-info" style="width: 50rem;">
+                                    <div class="card-body">
+                                        <h5 class="card-title text-uppercase text-white text-center bg-info">Request Headers</h5>
+                                        <div class="table-responsive">
+                                            <table class="table table-bordered">
+                                            <thead class="text-white text-center"><tr><th>Header Name</th><th>Header Value</th></tr></thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td class="text-nowrap">Authorization</td>
+                                                        <td>Basic cGludHVkaW5lc2hAZ21haWwuY29tOlNvbmlrYV8wMQ&#x3D;&#x3D;</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="text-nowrap">User-Agent</td>
+                                                        <td>PostmanRuntime/7.18.0</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="text-nowrap">Accept</td>
+                                                        <td>*/*</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="text-nowrap">Cache-Control</td>
+                                                        <td>no-cache</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="text-nowrap">Postman-Token</td>
+                                                        <td>834c40da-a52e-4c1c-9255-dc3421d40c71</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="text-nowrap">Host</td>
+                                                        <td>api.github.com</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="text-nowrap">Accept-Encoding</td>
+                                                        <td>gzip, deflate</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="text-nowrap">Connection</td>
+                                                        <td>keep-alive</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                        <div class="col-sm-12 mb-3">
+                            <div class="card-deck">
+                            <div class="card border-info" style="width: 50rem;">
+                                <div class="card-body">
+                                    <h5 class="card-title text-uppercase text-white text-center bg-info">Response Headers</h5>
+                                    <div class="table-responsive">
+                                        <table class="table table-bordered">
+                                        <thead class="text-white text-center"><tr><th>Header Name</th><th>Header Value</th></tr></thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td class="text-nowrap">Date</td>
+                                                    <td>Mon, 11 Nov 2019 13:40:40 GMT</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-nowrap">Content-Type</td>
+                                                    <td>application/json; charset&#x3D;utf-8</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-nowrap">Transfer-Encoding</td>
+                                                    <td>chunked</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-nowrap">Server</td>
+                                                    <td>GitHub.com</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-nowrap">Status</td>
+                                                    <td>404 Not Found</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-nowrap">X-RateLimit-Limit</td>
+                                                    <td>60</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-nowrap">X-RateLimit-Remaining</td>
+                                                    <td>45</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-nowrap">X-RateLimit-Reset</td>
+                                                    <td>1573482977</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-nowrap">X-GitHub-Media-Type</td>
+                                                    <td>github.v3; format&#x3D;json</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-nowrap">Access-Control-Expose-Headers</td>
+                                                    <td>ETag, Link, Location, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval, X-GitHub-Media-Type</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-nowrap">Access-Control-Allow-Origin</td>
+                                                    <td>*</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-nowrap">Strict-Transport-Security</td>
+                                                    <td>max-age&#x3D;31536000; includeSubdomains; preload</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-nowrap">X-Frame-Options</td>
+                                                    <td>deny</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-nowrap">X-Content-Type-Options</td>
+                                                    <td>nosniff</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-nowrap">X-XSS-Protection</td>
+                                                    <td>1; mode&#x3D;block</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-nowrap">Referrer-Policy</td>
+                                                    <td>origin-when-cross-origin, strict-origin-when-cross-origin</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-nowrap">Content-Security-Policy</td>
+                                                    <td>default-src &#x27;none&#x27;</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-nowrap">Content-Encoding</td>
+                                                    <td>gzip</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-nowrap">X-GitHub-Request-Id</td>
+                                                    <td>DAD1:450D5:22610F3:290373C:5DC964D8</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                        </div>
+                        <div class="row">
+                        <div class="col-sm-12 mb-3">
+                            <div class="card-deck">
+                            <div class="card border-info" style="width: 50rem;">
+                                <div class="card-body">
+                                    <h5 class="card-title text-uppercase text-white text-center bg-info">Response Body</h5>
+                                        <div class="dyn-height">
+                                                <pre><code id="copyText-2262d65d-7843-4529-8e7f-dd8f4494c1ae" class="prettyPrint">{&quot;message&quot;:&quot;Not Found&quot;,&quot;documentation_url&quot;:&quot;https://developer.github.com/v3/gists/#get-a-single-gist&quot;}</code></pre>
+                                        </div>
+                                        <div class="card-footer">
+                                            <button class="btn btn-secondary copyButton" type="button" data-clipboard-action="copy" data-clipboard-target="#copyText-2262d65d-7843-4529-8e7f-dd8f4494c1ae">Copy to Clipboard</button>
+                                        </div>
+                                </div>
+                            </div>
+                            </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="card border-info">
+                                <div class="card-body">
+                                <h5 class="card-title text-uppercase text-white text-center bg-info">Test Information</h5>
+                                    <div class="table-responsive text-nowrap">
+                                        <table id="myTable-2262d65d-7843-4529-8e7f-dd8f4494c1ae" class="table table-hover">
+                                        <thead><tr class="text-center"><th>Name</th><th>Passed</th><th>Failed</th><th>Skipped</th></tr></thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>Status code is 404</td>
+                                                    <td class="text-center bg-success">1</td>
+                                                    <td class="text-center ">0</td>
+                                                    <td class="text-center ">0</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Status code name has string</td>
+                                                    <td class="text-center bg-success">1</td>
+                                                    <td class="text-center ">0</td>
+                                                    <td class="text-center ">0</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Response Body for test case &#x27;As a user, I want to see a gist that does not exist&#x27; matches string</td>
+                                                    <td class="text-center bg-success">1</td>
+                                                    <td class="text-center ">0</td>
+                                                    <td class="text-center ">0</td>
+                                                </tr>
+                                            </tbody>
+                                            <tfoot>
+                                                <tr class="bg-light">
+                                                    <td><strong>Total</strong></td>
+                                                    <td class="text-center">3</td>
+                                                    <td class="text-center">0</td>
+                                                    <td class="text-center">0</td>
+                                                </tr>
+                                            </tfoot>
+                                        </table>
+                                    </div>
+                                    <div class="row d-none">
+                                    <div class="col-sm-12 mb-3">
+                                        <div class="card-deck">
+                                        <div class="card border-danger" style="width: 50rem;">
+                                            <div class="card-body">
+                                                <h5 class="card-title text-uppercase text-white text-center bg-danger">Test Failure</h5>
+                                                <div class="table-responsive">
+                                                    <table class="table table-hover">
+                                                    <thead><tr class="text-nowrap"><th>Test Name</th><th>Assertion Error</th></tr></thead>
+                                                        <tbody>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        </div>
+                                    </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+            </div>
+            <div class="card-deck iteration-0">
+            <div class="row iteration-0">
+                <div class="col-sm-12 mb-3 iteration-0">
+                <div class="card iteration-0">
+                    <div class="card-header  bg-success iteration-0">
+                        <a data-toggle="collapse" href="#" data-target="#collapse-1360c315-16dd-4650-9449-47f6b87f3d4b" aria-expanded="false" aria-controls="collapse" id="requests-1360c315-16dd-4650-9449-47f6b87f3d4b" class="collapsed text-white z-block">
+                    Iteration: 1 - As an unauthorized user, I should not be able to create a gist <i class="float-lg-right fa fa-chevron-down"></i>
+                </a>
+                    </div>
+                    <div id="collapse-1360c315-16dd-4650-9449-47f6b87f3d4b" class="collapse" aria-labelledby="requests-1360c315-16dd-4650-9449-47f6b87f3d4b">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-sm-12 mb-3">
+                                <div class="card-deck">
+                                <div class="card border-info" style="width: 50rem;">
+                                    <div class="card-body">
+                                    <h5 class="card-title text-uppercase text-white text-center bg-info">Request Information</h5>
+                                    <span><i class="fas fa-info-circle"></i></span><strong> Request Method:</strong> <span class="badge-outline-success badge badge-success"> POST</span><br>
+                                    <span><i class="fas fa-info-circle"></i></span><strong> Request URL:</strong> <a href="https://api.github.com/gists" target="_blank">https://api.github.com/gists</a><br>
+                                    </div>
+                                </div>
+                                <div class="card border-info" style="width: 50rem;">
+                                    <div class="card-body">
+                                    <h5 class="card-title text-uppercase text-white text-center bg-info">Response Information</h5>
+                                    <span><i class="fas fa-info-circle"></i></span><strong> Response Code:</strong> <span class="float-right badge-outline badge badge-success"> 401 - Unauthorized</span><br>
+                                    <span><i class="fas fa-stopwatch"></i></span><strong> Mean time per request:</strong> <span class="float-right badge-outline badge badge-success"> 117ms</span><br>
+                                    <span><i class="fas fa-database"></i></span><strong> Mean size per request:</strong> <span class="float-right badge-outline badge badge-success"> 112B</span><br>
+                                    <hr>
+                                    <h5 class="card-title text-uppercase text-white text-center bg-info">Test Pass Percentage</h5>
+                                    <div>
+                                        <div class="progress" style="height: 40px;">
+                                            <div class="progress-bar  bg-success" style="width: 100%" role="progressbar">
+                                            <h5><strong>100 %</strong></h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    </div>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12 mb-3">
+                                <div class="card-deck">
+                                <div class="card border-info" style="width: 50rem;">
+                                    <div class="card-body">
+                                        <h5 class="card-title text-uppercase text-white text-center bg-info">Request Headers</h5>
+                                        <div class="table-responsive">
+                                            <table class="table table-bordered">
+                                            <thead class="text-white text-center"><tr><th>Header Name</th><th>Header Value</th></tr></thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td class="text-nowrap">Content-Type</td>
+                                                        <td>text/plain</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="text-nowrap">User-Agent</td>
+                                                        <td>PostmanRuntime/7.18.0</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="text-nowrap">Accept</td>
+                                                        <td>*/*</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="text-nowrap">Cache-Control</td>
+                                                        <td>no-cache</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="text-nowrap">Postman-Token</td>
+                                                        <td>25148258-efd3-47de-bf6b-858d3c2161f0</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="text-nowrap">Host</td>
+                                                        <td>api.github.com</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="text-nowrap">Accept-Encoding</td>
+                                                        <td>gzip, deflate</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="text-nowrap">Content-Length</td>
+                                                        <td>804</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="text-nowrap">Connection</td>
+                                                        <td>keep-alive</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                        <div class="col-sm-12 mb-3">
+                            <div class="card-deck">
+                            <div class="card border-info" style="width: 50rem;">
+                                <div class="card-body">
+                                    <h5 class="card-title text-uppercase text-white text-center bg-info">Request Body</h5>
+                                        <div class="dyn-height">
+                                            <pre><code id="copyReqText-5" class="prettyPrint">{
+          &quot;description&quot;: &quot;Hello World Examples&quot;,
+          &quot;public&quot;: true,
+          &quot;files&quot;: {
+            &quot;hello_world.rb&quot;: {
+              &quot;content&quot;: &quot;class HelloWorld\n   def initialize(name)\n      @name &#x3D; name.capitalize\n   end\n   def sayHi\n      puts \&quot;Hello !\&quot;\n   end\nend\n\nhello &#x3D; HelloWorld.new(\&quot;World\&quot;)\nhello.sayHi&quot;
+            },
+            &quot;hello_world.py&quot;: {
+              &quot;content&quot;: &quot;class HelloWorld:\n\n    def __init__(self, name):\n        self.name &#x3D; name.capitalize()\n       \n    def sayHi(self):\n        print \&quot;Hello \&quot; + self.name + \&quot;!\&quot;\n\nhello &#x3D; HelloWorld(\&quot;world\&quot;)\nhello.sayHi()&quot;
+            },
+            &quot;hello_world_ruby.txt&quot;: {
+              &quot;content&quot;: &quot;Run &#x60;ruby hello_world.rb&#x60; to print Hello World&quot;
+            },
+            &quot;hello_world_python.txt&quot;: {
+              &quot;content&quot;: &quot;Run &#x60;python hello_world.py&#x60; to print Hello World&quot;
+            }
+          }
+        }
+        </code></pre>
+                                        </div>
+                                        <div class="card-footer">
+                                            <button class="btn btn-outline-secondary btn-sm copyButton" type="button" data-clipboard-action="copy" data-clipboard-target="#copyReqText-5">Copy to Clipboard</button>
+                                        </div>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                        </div>
+                        <div class="row">
+                        <div class="col-sm-12 mb-3">
+                            <div class="card-deck">
+                            <div class="card border-info" style="width: 50rem;">
+                                <div class="card-body">
+                                    <h5 class="card-title text-uppercase text-white text-center bg-info">Response Headers</h5>
+                                    <div class="table-responsive">
+                                        <table class="table table-bordered">
+                                        <thead class="text-white text-center"><tr><th>Header Name</th><th>Header Value</th></tr></thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td class="text-nowrap">Date</td>
+                                                    <td>Mon, 11 Nov 2019 13:40:40 GMT</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-nowrap">Content-Type</td>
+                                                    <td>application/json; charset&#x3D;utf-8</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-nowrap">Content-Length</td>
+                                                    <td>112</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-nowrap">Server</td>
+                                                    <td>GitHub.com</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-nowrap">Status</td>
+                                                    <td>401 Unauthorized</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-nowrap">X-RateLimit-Limit</td>
+                                                    <td>60</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-nowrap">X-RateLimit-Remaining</td>
+                                                    <td>55</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-nowrap">X-RateLimit-Reset</td>
+                                                    <td>1573483240</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-nowrap">X-GitHub-Media-Type</td>
+                                                    <td>github.v3; format&#x3D;json</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-nowrap">Access-Control-Expose-Headers</td>
+                                                    <td>ETag, Link, Location, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval, X-GitHub-Media-Type</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-nowrap">Access-Control-Allow-Origin</td>
+                                                    <td>*</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-nowrap">Strict-Transport-Security</td>
+                                                    <td>max-age&#x3D;31536000; includeSubdomains; preload</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-nowrap">X-Frame-Options</td>
+                                                    <td>deny</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-nowrap">X-Content-Type-Options</td>
+                                                    <td>nosniff</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-nowrap">X-XSS-Protection</td>
+                                                    <td>1; mode&#x3D;block</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-nowrap">Referrer-Policy</td>
+                                                    <td>origin-when-cross-origin, strict-origin-when-cross-origin</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-nowrap">Content-Security-Policy</td>
+                                                    <td>default-src &#x27;none&#x27;</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-nowrap">X-GitHub-Request-Id</td>
+                                                    <td>DAD1:450D5:226111B:2903774:5DC964D8</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                        </div>
+                        <div class="row">
+                        <div class="col-sm-12 mb-3">
+                            <div class="card-deck">
+                            <div class="card border-info" style="width: 50rem;">
+                                <div class="card-body">
+                                    <h5 class="card-title text-uppercase text-white text-center bg-info">Response Body</h5>
+                                        <div class="dyn-height">
+                                                <pre><code id="copyText-88614a87-6a65-4fef-bdc5-4737178fe694" class="prettyPrint">{&quot;message&quot;:&quot;Requires authentication&quot;,&quot;documentation_url&quot;:&quot;https://developer.github.com/v3/gists/#create-a-gist&quot;}</code></pre>
+                                        </div>
+                                        <div class="card-footer">
+                                            <button class="btn btn-secondary copyButton" type="button" data-clipboard-action="copy" data-clipboard-target="#copyText-88614a87-6a65-4fef-bdc5-4737178fe694">Copy to Clipboard</button>
+                                        </div>
+                                </div>
+                            </div>
+                            </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="card border-info">
+                                <div class="card-body">
+                                <h5 class="card-title text-uppercase text-white text-center bg-info">Test Information</h5>
+                                    <div class="table-responsive text-nowrap">
+                                        <table id="myTable-88614a87-6a65-4fef-bdc5-4737178fe694" class="table table-hover">
+                                        <thead><tr class="text-center"><th>Name</th><th>Passed</th><th>Failed</th><th>Skipped</th></tr></thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>Status code is 401</td>
+                                                    <td class="text-center bg-success">1</td>
+                                                    <td class="text-center ">0</td>
+                                                    <td class="text-center ">0</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Status code name has string</td>
+                                                    <td class="text-center bg-success">1</td>
+                                                    <td class="text-center ">0</td>
+                                                    <td class="text-center ">0</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Response Body for test case &#x27;As an unauthorized user, I should not be able to create a gist&#x27; matches string</td>
+                                                    <td class="text-center bg-success">1</td>
+                                                    <td class="text-center ">0</td>
+                                                    <td class="text-center ">0</td>
+                                                </tr>
+                                            </tbody>
+                                            <tfoot>
+                                                <tr class="bg-light">
+                                                    <td><strong>Total</strong></td>
+                                                    <td class="text-center">3</td>
+                                                    <td class="text-center">0</td>
+                                                    <td class="text-center">0</td>
+                                                </tr>
+                                            </tfoot>
+                                        </table>
+                                    </div>
+                                    <div class="row d-none">
+                                    <div class="col-sm-12 mb-3">
+                                        <div class="card-deck">
+                                        <div class="card border-danger" style="width: 50rem;">
+                                            <div class="card-body">
+                                                <h5 class="card-title text-uppercase text-white text-center bg-danger">Test Failure</h5>
+                                                <div class="table-responsive">
+                                                    <table class="table table-hover">
+                                                    <thead><tr class="text-nowrap"><th>Test Name</th><th>Assertion Error</th></tr></thead>
+                                                        <tbody>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        </div>
+                                    </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+</body>
+</html>
+
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://cdn.datatables.net/v/bs4/dt-1.10.18/datatables.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.2.1/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/remarkable/1.7.1/remarkable.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+<script>
+$(document).ready( function () {
+    $('#myTable-815052be-dead-4eed-bcc9-283b714742d2').DataTable({
+        "retrieve": true,
+        "paging": false,
+        "info": false
+    });
+});
+$(document).ready( function () {
+    $('#myTable-8dd114b5-6c26-420b-ba97-847c94df79f4').DataTable({
+        "retrieve": true,
+        "paging": false,
+        "info": false
+    });
+});
+$(document).ready( function () {
+    $('#myTable-e2d4b381-0599-4a7f-9ea1-e82a26e17f27').DataTable({
+        "retrieve": true,
+        "paging": false,
+        "info": false
+    });
+});
+$(document).ready( function () {
+    $('#myTable-b5805533-19de-4d30-bbdf-47c3fcc51458').DataTable({
+        "retrieve": true,
+        "paging": false,
+        "info": false
+    });
+});
+$(document).ready( function () {
+    $('#myTable-2262d65d-7843-4529-8e7f-dd8f4494c1ae').DataTable({
+        "retrieve": true,
+        "paging": false,
+        "info": false
+    });
+});
+$(document).ready( function () {
+    $('#myTable-88614a87-6a65-4fef-bdc5-4737178fe694').DataTable({
+        "retrieve": true,
+        "paging": false,
+        "info": false
+    });
+});
+</script>
+
+<script>
+$(document).ready(function() {
+    $('[data-toggle="tooltip"]').tooltip({
+        trigger : 'hover'
+    })
+})
+</script>
+
+<script>
+$('#openAll').on('click', function(e) {
+    $('#folder-22dd17ec-c33c-42c1-ae1d-ad92ff824ef3-iteration-0').removeClass('collapsed')
+    $('#folder-collapse-22dd17ec-c33c-42c1-ae1d-ad92ff824ef3-iteration-0').addClass('show')
+})
+</script>
+
+<script>
+$('#closeAll').on('click', function(e) {
+    $('#folder-22dd17ec-c33c-42c1-ae1d-ad92ff824ef3-iteration-0').addClass('collapsed')
+    $('#folder-collapse-22dd17ec-c33c-42c1-ae1d-ad92ff824ef3-iteration-0').removeClass('show')
+})
+</script>
+
+<script>
+function isJSON(data)
+{
+    var ret = true;
+    try {
+            JSON.parse(data);
+    }catch(e) {
+            ret = false;
+    }
+    return ret;
+}
+
+function isXML(data)
+{
+    return (data.length > 0 && data[0] === '<');
+}
+
+// see https://gist.github.com/sente/1083506/d2834134cd070dbcc08bf42ee27dabb746a1c54d#gistcomment-2254622
+function formatXML(data) {
+    const PADDING = ' '.repeat(2); // set desired indent size here
+    const reg = /(>)(<)(\/*)/g;
+    let pad = 0;
+    xml = data.replace(reg, '$1\r\n$2$3');
+
+    return xml.split('\r\n').map((node, index) => {
+        let indent = 0;
+        if (node.match(/.+<\/\w[^>]*>$/)) {
+            indent = 0;
+        } else if (node.match(/^<\/\w/) && pad > 0) {
+            pad -= 1;
+        } else if (node.match(/^<\w[^>]*[^\/]>.*$/)) {
+            indent = 1;
+        } else {
+            indent = 0;
+        }
+
+        pad += indent;
+        return PADDING.repeat(pad - indent) + node;
+    }).join('\r\n');
+}
+
+$(".prettyPrint").each(function () {
+        var data = $(this).text();
+        // Verify whether data is JSON
+        if(isJSON(data))
+        {
+                obj = JSON.parse(data);
+                data = JSON.stringify(obj, null, 2);
+        }
+        else if(isXML(data)) {
+            data = formatXML(data);            
+        }
+        $(this).text(data);
+});
+</script>
+
+
+<!-- Copy Response Body To Clipboard -->
+<script>
+    var clipboard = new ClipboardJS('.copyButton');
+
+    clipboard.on('success', function(e) {
+        e.clearSelection();
+        $(".copyButton").addClass("bg-success text-white")
+        e.trigger.textContent = '✔ Copied!';
+        window.setTimeout(function() {
+            $(".copyButton").removeClass("bg-success text-white")
+            e.trigger.textContent = 'Copy to Clipboard';
+        }, 2000);
+    });
+    clipboard.on('error', function(e) {
+        e.clearSelection();
+        $(".copyButton").addClass("bg-danger text-white")
+        e.trigger.textContent = '✗ Not Copied';
+        window.setTimeout(function() {
+            $(".copyButton").removeClass("bg-danger text-white")
+            e.trigger.textContent = 'Copy to Clipboard';
+        }, 2000);
+    });
+
+</script>
+
+<!-- Render the Description Markdown -->
+<script>
+    const remarkable = new Remarkable();
+
+    const descriptions = document.querySelectorAll("#description");
+    descriptions.forEach(description => {
+        description.innerHTML = renderHtmlFromMarkdown(description.textContent);
+    });
+    function renderHtmlFromMarkdown(markdown) {
+        return remarkable.render(trim(markdown));
+    }
+    function trim(string) {
+        return string ? string.replace(/^ +| +$/gm, "") : string;
+    }
+</script>
+
+<script>
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    document.getElementById("topOfRequestsScreen").style.display = "block";
+    document.getElementById("topOfFailuresScreen").style.display = "block";
+    document.getElementById("topOfSkippedScreen").style.display = "block";
+    document.getElementById("topOfLogsScreen").style.display = "block";
+    document.getElementById("openAll").style.display = "none";
+    document.getElementById("closeAll").style.display = "none";
+  } else {
+    document.getElementById("topOfRequestsScreen").style.display = "none";
+    document.getElementById("topOfFailuresScreen").style.display = "none";
+    document.getElementById("topOfSkippedScreen").style.display = "none";
+    document.getElementById("topOfLogsScreen").style.display = "none";
+    document.getElementById("openAll").style.display = "block";
+    document.getElementById("closeAll").style.display = "block";
+  }
+}
+
+function topFunction() {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+}
+</script>
+
+<script type="text/javascript">
+    "use strict";
+
+window.onload = function () {
+
+  // hides all blocks of response
+  var allItems = document.querySelectorAll('[class*=iteration-]');
+  allItems.forEach(function(elem){
+    elem.style.display = 'none';
+  });
+
+   
+  let totalIterations = 1;
+   
+
+  let menu = document.querySelector('#execution-menu .nav');
+
+  for(var i = 0; i < totalIterations; i++)
+  {
+    let li = document.createElement('li');
+    li.appendChild(document.createTextNode((i + 1)));
+    li.setAttribute('id', 'iteration-' + i);
+    li.classList.add("custom-tab");
+
+    li.addEventListener('click', function() {
+
+      let allItems = document.querySelectorAll('[class*=iteration-]');
+      allItems.forEach(function(elem) {
+        elem.style.display = 'none';
+      })
+
+      let allMenus = document.querySelectorAll('[id*=iteration-]');
+      allMenus.forEach(function(elem){
+        elem.style.borderBottom = 'none';
+      })
+
+      this.style.borderBottom = 'solid 1px #032a33';
+
+      let items = document.querySelectorAll("." + this.id);
+      items.forEach(function(elem) {
+        elem.style.display = elem.style.display == 'block' ? 'none' : 'block';
+      })
+    });
+
+    menu.appendChild(li);
+  }
+
+    //shows first tab data
+  document.getElementById('iteration-0').click();
+}
+</script>
